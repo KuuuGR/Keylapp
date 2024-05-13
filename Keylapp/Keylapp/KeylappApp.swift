@@ -11,7 +11,10 @@ import SwiftUI
 struct KeylappApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                WelcomeView()
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

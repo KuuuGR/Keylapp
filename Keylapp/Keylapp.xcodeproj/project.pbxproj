@@ -14,6 +14,8 @@
 		075D54422BF27B4D00386B86 /* KeylappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54412BF27B4D00386B86 /* KeylappTests.swift */; };
 		075D544C2BF27B4D00386B86 /* KeylappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D544B2BF27B4D00386B86 /* KeylappUITests.swift */; };
 		075D544E2BF27B4D00386B86 /* KeylappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D544D2BF27B4D00386B86 /* KeylappUITestsLaunchTests.swift */; };
+		075D545B2BF27E9B00386B86 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D545A2BF27E9B00386B86 /* WelcomeView.swift */; };
+		075D545D2BF2815000386B86 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D545C2BF2815000386B86 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		075D54472BF27B4D00386B86 /* KeylappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeylappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		075D544B2BF27B4D00386B86 /* KeylappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeylappUITests.swift; sourceTree = "<group>"; };
 		075D544D2BF27B4D00386B86 /* KeylappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeylappUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		075D545A2BF27E9B00386B86 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		075D545C2BF2815000386B86 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +98,9 @@
 		075D542F2BF27B4900386B86 /* Keylapp */ = {
 			isa = PBXGroup;
 			children = (
+				075D545C2BF2815000386B86 /* MainView.swift */,
 				075D54302BF27B4900386B86 /* KeylappApp.swift */,
+				075D545A2BF27E9B00386B86 /* WelcomeView.swift */,
 				075D54322BF27B4900386B86 /* ContentView.swift */,
 				075D54342BF27B4D00386B86 /* Assets.xcassets */,
 				075D54362BF27B4D00386B86 /* Preview Content */,
@@ -258,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				075D54332BF27B4900386B86 /* ContentView.swift in Sources */,
+				075D545D2BF2815000386B86 /* MainView.swift in Sources */,
+				075D545B2BF27E9B00386B86 /* WelcomeView.swift in Sources */,
 				075D54312BF27B4900386B86 /* KeylappApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
