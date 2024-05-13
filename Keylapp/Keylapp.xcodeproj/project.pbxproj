@@ -19,6 +19,10 @@
 		075D545F2BF28EB400386B86 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D545E2BF28EB400386B86 /* KeyboardLayout.swift */; };
 		075D54612BF28EF700386B86 /* LayoutDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54602BF28EF700386B86 /* LayoutDataManager.swift */; };
 		075D54672BF2916000386B86 /* KeyboardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54662BF2916000386B86 /* KeyboardGridView.swift */; };
+		075D54692BF2982F00386B86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54682BF2982F00386B86 /* AppDelegate.swift */; };
+		075D546B2BF2985500386B86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D546A2BF2985500386B86 /* SceneDelegate.swift */; };
+		075D546D2BF2A4B800386B86 /* KeyboardLayoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D546C2BF2A4B800386B86 /* KeyboardLayoutData.swift */; };
+		075D546F2BF2A66400386B86 /* KeyboardLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D546E2BF2A66400386B86 /* KeyboardLayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		075D545E2BF28EB400386B86 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
 		075D54602BF28EF700386B86 /* LayoutDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDataManager.swift; sourceTree = "<group>"; };
 		075D54662BF2916000386B86 /* KeyboardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGridView.swift; sourceTree = "<group>"; };
+		075D54682BF2982F00386B86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		075D546A2BF2985500386B86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		075D546C2BF2A4B800386B86 /* KeyboardLayoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutData.swift; sourceTree = "<group>"; };
+		075D546E2BF2A66400386B86 /* KeyboardLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +150,10 @@
 		075D54622BF28F2400386B86 /* Model Files */ = {
 			isa = PBXGroup;
 			children = (
-				075D54602BF28EF700386B86 /* LayoutDataManager.swift */,
+				075D54682BF2982F00386B86 /* AppDelegate.swift */,
 				075D545E2BF28EB400386B86 /* KeyboardLayout.swift */,
+				075D546C2BF2A4B800386B86 /* KeyboardLayoutData.swift */,
+				075D54602BF28EF700386B86 /* LayoutDataManager.swift */,
 			);
 			name = "Model Files";
 			sourceTree = "<group>";
@@ -151,9 +161,11 @@
 		075D54642BF28F7500386B86 /* View Files */ = {
 			isa = PBXGroup;
 			children = (
-				075D545C2BF2815000386B86 /* MainView.swift */,
-				075D545A2BF27E9B00386B86 /* WelcomeView.swift */,
 				075D54662BF2916000386B86 /* KeyboardGridView.swift */,
+				075D546E2BF2A66400386B86 /* KeyboardLayoutView.swift */,
+				075D545C2BF2815000386B86 /* MainView.swift */,
+				075D546A2BF2985500386B86 /* SceneDelegate.swift */,
+				075D545A2BF27E9B00386B86 /* WelcomeView.swift */,
 			);
 			name = "View Files";
 			sourceTree = "<group>";
@@ -296,9 +308,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075D54692BF2982F00386B86 /* AppDelegate.swift in Sources */,
 				075D54332BF27B4900386B86 /* ContentView.swift in Sources */,
+				075D546D2BF2A4B800386B86 /* KeyboardLayoutData.swift in Sources */,
+				075D546B2BF2985500386B86 /* SceneDelegate.swift in Sources */,
 				075D54612BF28EF700386B86 /* LayoutDataManager.swift in Sources */,
 				075D545D2BF2815000386B86 /* MainView.swift in Sources */,
+				075D546F2BF2A66400386B86 /* KeyboardLayoutView.swift in Sources */,
 				075D545F2BF28EB400386B86 /* KeyboardLayout.swift in Sources */,
 				075D54672BF2916000386B86 /* KeyboardGridView.swift in Sources */,
 				075D545B2BF27E9B00386B86 /* WelcomeView.swift in Sources */,

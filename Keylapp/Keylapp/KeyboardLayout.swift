@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct KeyboardLayout {
-    var name: String
-    var keys: [[String]]  // 2D array to represent rows and columns of keys
+    let id: String
+    let name: String
+    let firstRow: String
+    let secondRow: String
+    let thirdRow: String
 }
-
-// GQTODO: Consider creating a separate data manager if my data processing becomes complex

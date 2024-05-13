@@ -5,11 +5,13 @@
 //  Created by Grzegorz Kulesza on 13/05/2024.
 //
 
+// MainView.swift
+
 import SwiftUI
 
 struct MainView: View {
     @State private var selectedLayoutIndex = 0
-    let layouts: [KeyboardLayout] = LayoutDataManager.shared.parseLayouts()
+    let layouts = LayoutDataManager.shared.layouts  // Directly access the layouts
 
     var body: some View {
         VStack {
@@ -21,12 +23,12 @@ struct MainView: View {
             .pickerStyle(SegmentedPickerStyle())
             .padding()
 
-            KeyboardGridView(layout: layouts[selectedLayoutIndex])
+            if !layouts.isEmpty {
+                KeyboardGridView(layout: layouts[selectedLayoutIndex])
+            }
         }
+        .padding()
     }
 }
 
-
-#Preview {
-    MainView()
-}
+// Add previews as needed

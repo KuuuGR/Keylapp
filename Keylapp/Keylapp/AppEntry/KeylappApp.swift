@@ -7,14 +7,15 @@
 
 import SwiftUI
 
+import SwiftUI
+
 @main
 struct KeylappApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                WelcomeView()
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
+            ContentView()
         }
     }
 }
