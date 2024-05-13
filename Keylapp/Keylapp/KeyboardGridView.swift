@@ -6,14 +6,16 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct KeyboardGridView: View {
     var layout: KeyboardLayout
 
     // This transforms the string data into an array of arrays, each sub-array representing a row of keys
     private var keys: [[String]] {
         [layout.firstRow, layout.secondRow, layout.thirdRow].map { row in
-            row.map { String($0) }
-        }
+            row.map { String($0) } // Convert each row into an array of strings
+        } + [["","","","","--","--","","","",""]] // Append an empty array to create an empty row
     }
 
     var body: some View {
