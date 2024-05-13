@@ -18,6 +18,7 @@
 		075D545D2BF2815000386B86 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D545C2BF2815000386B86 /* MainView.swift */; };
 		075D545F2BF28EB400386B86 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D545E2BF28EB400386B86 /* KeyboardLayout.swift */; };
 		075D54612BF28EF700386B86 /* LayoutDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54602BF28EF700386B86 /* LayoutDataManager.swift */; };
+		075D54672BF2916000386B86 /* KeyboardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54662BF2916000386B86 /* KeyboardGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		075D545C2BF2815000386B86 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		075D545E2BF28EB400386B86 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
 		075D54602BF28EF700386B86 /* LayoutDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDataManager.swift; sourceTree = "<group>"; };
+		075D54662BF2916000386B86 /* KeyboardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				075D545C2BF2815000386B86 /* MainView.swift */,
 				075D545A2BF27E9B00386B86 /* WelcomeView.swift */,
+				075D54662BF2916000386B86 /* KeyboardGridView.swift */,
 			);
 			name = "View Files";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				075D54612BF28EF700386B86 /* LayoutDataManager.swift in Sources */,
 				075D545D2BF2815000386B86 /* MainView.swift in Sources */,
 				075D545F2BF28EB400386B86 /* KeyboardLayout.swift in Sources */,
+				075D54672BF2916000386B86 /* KeyboardGridView.swift in Sources */,
 				075D545B2BF27E9B00386B86 /* WelcomeView.swift in Sources */,
 				075D54312BF27B4900386B86 /* KeylappApp.swift in Sources */,
 			);

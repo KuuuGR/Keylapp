@@ -10,9 +10,19 @@ import Foundation
 class LayoutDataManager {
     static let shared = LayoutDataManager()
     
+    let rawLayouts: [String] = [
+        "QWERTY",
+        """
+        qwfpbjluy;
+        arstgmneio
+        zxcdvkh,./
+        """,
+        // Repeat for other layouts
+    ]
+    
     private init() {}
 
-    func parseLayouts(from rawLayouts: [String]) -> [KeyboardLayout] {
+    func parseLayouts() -> [KeyboardLayout] {
         var layouts = [KeyboardLayout]()
         for i in stride(from: 0, to: rawLayouts.count, by: 2) {
             let name = rawLayouts[i].trimmingCharacters(in: .whitespacesAndNewlines)

@@ -8,29 +8,21 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedLayoutIndex = 0
+    let layouts: [KeyboardLayout] = LayoutDataManager.shared.parseLayouts()
+
     var body: some View {
         VStack {
-            Text("Welcome to Main View!")
-                .font(.title)
-                .padding()
+            Picker("Select Layout", selection: $selectedLayoutIndex) {
+                ForEach(0..<layouts.count, id: \.self) { index in
+                    Text(layouts[index].name).tag(index)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
 
-            Text("Select a layout from the options below:")
-                .padding()
-
-            // Placeholder for keyboard layout selector and view
-            Text("Layout options will be here")
-                .foregroundColor(.gray)
-                .padding()
-
-            Spacer()
+            KeyboardGridView(layout: layouts[selectedLayoutIndex])
         }
-        .navigationTitle("Keyboard Layouts")
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
     }
 }
 
