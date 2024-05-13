@@ -9,25 +9,24 @@ import SwiftUI
 struct KeyboardGridView: View {
     var layout: KeyboardLayout
 
-    // Convert rows to a 2D array
+    // This transforms the string data into an array of arrays, each sub-array representing a row of keys
     private var keys: [[String]] {
-        let firstRow = layout.firstRow.map { String($0) }
-        let secondRow = layout.secondRow.map { String($0) }
-        let thirdRow = layout.thirdRow.map { String($0) }
-        return [firstRow, secondRow, thirdRow]
+        [layout.firstRow, layout.secondRow, layout.thirdRow].map { row in
+            row.map { String($0) }
+        }
     }
 
     var body: some View {
-        ScrollView(.horizontal) {
-            // Define the number of columns based on the maximum number of keys in any row
-            let columns = Array(repeating: GridItem(.flexible()), count: keys.max(by: { $0.count < $1.count })?.count ?? 10)
-
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(0..<keys.count, id: \.self) { rowIndex in
-                    ForEach(0..<keys[rowIndex].count, id: \.self) { columnIndex in
-                        Text(keys[rowIndex][columnIndex])
-                            .frame(width: 40, height: 40)
-                            .border(Color.gray, width: 1)
+        ScrollView {
+            // Using a VStack to stack rows vertically
+            VStack(alignment: .leading, spacing: 10) {
+                ForEach(keys, id: \.self) { row in
+                    HStack {
+                        ForEach(row, id: \.self) { key in
+                            Text(key)
+                                .frame(width: 40, height: 40)
+                                .border(Color.gray)
+                        }
                     }
                 }
             }

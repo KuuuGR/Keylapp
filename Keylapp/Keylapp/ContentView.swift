@@ -12,12 +12,10 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            Group {
-                if viewRouter.currentView == .welcome {
-                    WelcomeView()
-                } else {
-                    MainView()
-                }
+            if viewRouter.currentView == .welcome {
+                WelcomeView()
+            } else {
+                MainView()
             }
         }
     }
