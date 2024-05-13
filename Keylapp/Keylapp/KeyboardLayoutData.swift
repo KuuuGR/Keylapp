@@ -10,9 +10,9 @@ import Foundation
 // KeyboardLayoutData.swift
 
 let keyboardLayouts: [KeyboardLayout] = [
-    KeyboardLayout(id: "001", name: "QWERTY", firstRow: "qwfpbjluy;", secondRow: "arstgmneio", thirdRow: "zxcdvkh,./"),
-    KeyboardLayout(id: "002", name: "Graphite", firstRow: "bldwz'fouj", secondRow: "nrtsgyhaei", thirdRow: "qxmcvkp.-/"),
-    KeyboardLayout(id: "003", name: "Colemak", firstRow: "qwfpgjluy;", secondRow: "arstdhneio", thirdRow: "zxcvbkm,./"),
+    KeyboardLayout(id: "001", name: "QWERTY", firstRow: "qwfpbjluy;", secondRow: "arstgmneio", thirdRow: "zxcdvkh,./", keyColors: ["q": .red, "w": .blue, "e": .green]),
+    KeyboardLayout(id: "002", name: "Graphite", firstRow: "bldwz'fouj", secondRow: "nrtsgyhaei", thirdRow: "qxmcvkp.-/", keyColors: ["q": .brown, "w": .yellow, "e": .orange]),
+    KeyboardLayout(id: "003", name: "Colemak", firstRow: "qwfpgjluy;", secondRow: "arstdhneio", thirdRow: "zxcvbkm,./", keyColors: ["q": .teal, "w": .indigo, "e": .mint, "s": .mint]),
     // GQTODO: Add more layouts here
 ]
 
