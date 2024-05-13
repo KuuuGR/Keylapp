@@ -24,6 +24,8 @@
 		075D546D2BF2A4B800386B86 /* KeyboardLayoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D546C2BF2A4B800386B86 /* KeyboardLayoutData.swift */; };
 		075D546F2BF2A66400386B86 /* KeyboardLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D546E2BF2A66400386B86 /* KeyboardLayoutView.swift */; };
 		075D54712BF2AC5800386B86 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54702BF2AC5800386B86 /* ViewRouter.swift */; };
+		076EF6F12BF2B9D3003C62B0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076EF6F02BF2B9D3003C62B0 /* UIViewController.swift */; };
+		076EF6F32BF2BBB1003C62B0 /* OrientationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		075D546C2BF2A4B800386B86 /* KeyboardLayoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutData.swift; sourceTree = "<group>"; };
 		075D546E2BF2A66400386B86 /* KeyboardLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutView.swift; sourceTree = "<group>"; };
 		075D54702BF2AC5800386B86 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		076EF6F02BF2B9D3003C62B0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,8 @@
 				075D546A2BF2985500386B86 /* SceneDelegate.swift */,
 				075D54702BF2AC5800386B86 /* ViewRouter.swift */,
 				075D545A2BF27E9B00386B86 /* WelcomeView.swift */,
+				076EF6F02BF2B9D3003C62B0 /* UIViewController.swift */,
+				076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */,
 			);
 			name = "View Files";
 			sourceTree = "<group>";
@@ -318,6 +324,8 @@
 				075D546B2BF2985500386B86 /* SceneDelegate.swift in Sources */,
 				075D54612BF28EF700386B86 /* LayoutDataManager.swift in Sources */,
 				075D545D2BF2815000386B86 /* MainView.swift in Sources */,
+				076EF6F32BF2BBB1003C62B0 /* OrientationViewController.swift in Sources */,
+				076EF6F12BF2B9D3003C62B0 /* UIViewController.swift in Sources */,
 				075D546F2BF2A66400386B86 /* KeyboardLayoutView.swift in Sources */,
 				075D545F2BF28EB400386B86 /* KeyboardLayout.swift in Sources */,
 				075D54672BF2916000386B86 /* KeyboardGridView.swift in Sources */,

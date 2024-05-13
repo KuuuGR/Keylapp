@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @State private var logoOpacity = 0.0
+    @EnvironmentObject var viewRouter: ViewRouter
 
     var body: some View {
         VStack {
@@ -35,18 +36,19 @@ struct WelcomeView: View {
                 .font(.title3)
                 .foregroundColor(Color.secondary)
                 .padding(.bottom, 50)
-
-            NavigationLink(destination: MainView()) {
-                Text("Explore Layouts")
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 280, height: 50)
-                    .background(Color.blue)
-                    .cornerRadius(25)
-                    .shadow(radius: 5)
-            }
-
+            Button("Explore Layouts") {
+                            viewRouter.currentView = .main
+                        }
+//            NavigationLink(destination: MainView()) {
+//                Text("Explore Layouts")
+//                    .fontWeight(.semibold)
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .frame(width: 280, height: 50)
+//                    .background(Color.blue)
+//                    .cornerRadius(25)
+//                    .shadow(radius: 5)
+//            }
             Spacer()
         }
         .padding()

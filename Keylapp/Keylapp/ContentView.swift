@@ -5,32 +5,32 @@
 //  Created by Grzegorz Kulesza on 13/05/2024.
 //
 
-// ContentView.swift
 import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @Environment(\.scenePhase) var scenePhase
 
     var body: some View {
         Group {
             if viewRouter.currentView == .welcome {
                 WelcomeView()
-                    .onAppear {
-                        setOrientation(isPortrait: true)
-                    }
             } else {
                 MainView()
-                    .onAppear {
-                        setOrientation(isPortrait: false)
-                    }
+            }
+        }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                adjustOrientation()
             }
         }
     }
 
-    // This function sets the device orientation
-    private func setOrientation(isPortrait: Bool) {
-        UIDevice.current.setValue(isPortrait ? UIInterfaceOrientation.portrait.rawValue : UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
-        UINavigationController.attemptRotationToDeviceOrientation()
+    func adjustOrientation() {
+        if let rootVC = UIApplication.shared.windows.first?.rootViewController as? OrientationViewController {
+            rootVC.orientationMask = viewRouter.currentView == .welcome ? .portrait : .landscape
+            rootVC.setNeedsUpdateOfSupportedInterfaceOrientations()
+        }
     }
 }
 

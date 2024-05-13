@@ -10,26 +10,17 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    let orientationController = OrientationViewController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let viewRouter = ViewRouter()
-        let contentView = ContentView().environmentObject(viewRouter)
+        let contentView = ContentView()
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            orientationController.view = UIHostingController(rootView: contentView).view
+            window.rootViewController = orientationController
             self.window = window
             window.makeKeyAndVisible()
-        }
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        adjustOrientation()
-    }
-
-    private func adjustOrientation() {
-        if let rootViewController = window?.rootViewController {
-            rootViewController.setNeedsUpdateOfSupportedInterfaceOrientations()
         }
     }
 }
