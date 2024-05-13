@@ -9,11 +9,11 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let contentView = ContentView()
+        let viewRouter = ViewRouter()
+        let contentView = ContentView().environmentObject(viewRouter)
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -24,12 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Lock the orientation when the app becomes active
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .landscape
+        adjustOrientation()
     }
 
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Unlock the orientation when the app goes to the background
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .all
+    private func adjustOrientation() {
+        if let rootViewController = window?.rootViewController {
+            rootViewController.setNeedsUpdateOfSupportedInterfaceOrientations()
+        }
     }
 }

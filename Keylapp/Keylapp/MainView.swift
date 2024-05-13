@@ -5,8 +5,6 @@
 //  Created by Grzegorz Kulesza on 13/05/2024.
 //
 
-// MainView.swift
-
 import SwiftUI
 
 struct MainView: View {
@@ -15,15 +13,19 @@ struct MainView: View {
 
     var body: some View {
         VStack {
-            Picker("Select Layout", selection: $selectedLayoutIndex) {
-                ForEach(0..<layouts.count, id: \.self) { index in
-                    Text(layouts[index].name).tag(index)
+            if layouts.isEmpty {
+                Text("No layouts available")
+                    .padding()
+                    .foregroundColor(.gray)
+            } else {
+                Picker("Select Layout", selection: $selectedLayoutIndex) {
+                    ForEach(0..<layouts.count, id: \.self) { index in
+                        Text(layouts[index].name).tag(index)
+                    }
                 }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
 
-            if !layouts.isEmpty {
                 KeyboardGridView(layout: layouts[selectedLayoutIndex])
             }
         }
@@ -31,4 +33,8 @@ struct MainView: View {
     }
 }
 
-// Add previews as needed
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}
