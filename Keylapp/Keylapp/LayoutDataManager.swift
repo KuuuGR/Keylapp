@@ -1,8 +1,7 @@
+// LayoutDataManager.swift
+// Keylapp
 //
-//  LayoutDataManager.swift
-//  Keylapp
-//
-//  Created by Grzegorz Kulesza on 13/05/2024.
+// Created by Grzegorz Kulesza on 13/05/2024.
 //
 
 import Foundation
@@ -28,7 +27,7 @@ class LayoutDataManager {
             let firstRow = lines[1].padding(toLength: 10, withPad: " ", startingAt: 0)
             let secondRow = lines[2].padding(toLength: 10, withPad: " ", startingAt: 0)
             let thirdRow = lines[3].padding(toLength: 10, withPad: " ", startingAt: 0)
-            let fourthRow = String(repeating: " ", count: 10)  // Ensuring fourthRow always has 10 characters
+            let fourthRow: String = "⌨         "
 
             // Get the fourth character and the fourth-from-end character from the second row
             let startIdx = secondRow.index(secondRow.startIndex, offsetBy: 3)
@@ -40,7 +39,7 @@ class LayoutDataManager {
             // Set colors for the specified keys in the second row
             var keyColors: [String: Color] = [
                 "\(startChar)_3": .logoBlue,
-                "\(endChar)_6": .logoBlue
+                "\(endChar)_6": .logoBlue,
             ]
 
             // Add colors for the first three and last three keys in the fourth row
