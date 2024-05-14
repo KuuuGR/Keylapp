@@ -54,7 +54,7 @@ class LayoutDataManager {
                 keyColors["\(fourthRowChars[5])_5"] = .gray
             }
 
-            let keyboardLayout = KeyboardLayout(
+            var keyboardLayout = KeyboardLayout(
                 id: String(format: "%03d", index + 1),
                 name: name,
                 firstRow: firstRow,
@@ -64,9 +64,24 @@ class LayoutDataManager {
                 keyColors: keyColors
             )
 
+            keyboardLayout.comparisonKeys = generateComparisonLayout(for: keyboardLayout)
+
             keyboardLayouts.append(keyboardLayout)
         }
 
         return keyboardLayouts
+    }
+
+    func generateComparisonLayout(for layout: KeyboardLayout) -> [String: String] {
+        let qwertyLayout = "qwertyuiopasdfghjkl;zxcvbnm,./"
+        let currentLayout = layout.firstRow + layout.secondRow + layout.thirdRow
+
+        var comparison = [String: String]()
+        for (index, char) in currentLayout.enumerated() {
+            let qwertyChar = qwertyLayout[qwertyLayout.index(qwertyLayout.startIndex, offsetBy: index)]
+            comparison[String(char)] = "\(char)/\(qwertyChar)"
+        }
+
+        return comparison
     }
 }

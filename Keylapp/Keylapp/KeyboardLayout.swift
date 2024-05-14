@@ -14,5 +14,6 @@ struct KeyboardLayout {
     let secondRow: String
     let thirdRow: String
     let fourthRow: String
-    var keyColors: [String: Color]  // Dictionary to hold color for each key
+    var keyColors: [String: Color]
+    var comparisonKeys: [String: String] = [:]  // Add this property
 }

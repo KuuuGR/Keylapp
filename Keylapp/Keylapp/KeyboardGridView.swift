@@ -6,8 +6,11 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct KeyboardGridView: View {
     var layout: KeyboardLayout
+    @State private var showComparison = false
 
     private var keys: [[String]] {
         [layout.firstRow, layout.secondRow, layout.thirdRow, layout.fourthRow].map { row in
@@ -26,12 +29,16 @@ struct KeyboardGridView: View {
                             let keyParts = key.split(separator: "_")
                             let keyChar = String(keyParts[0])
                             let keyColor = layout.keyColors[key] ?? .gray
+                            let displayChar = showComparison ? layout.comparisonKeys[keyChar] ?? keyChar : keyChar
                             
                             Button(action: {
-                                print("\(keyChar) tapped")
-                                // Add actions here for button tap
+                                if index == 3 && colIndex == 0 {
+                                    showComparison.toggle()
+                                } else {
+                                    print("\(keyChar) tapped")
+                                }
                             }) {
-                                Text(keyChar)
+                                Text(displayChar)
                                     .font(.system(size: buttonSize / 2, weight: .bold))
                                     .frame(width: buttonSize, height: buttonSize)
                                     .background(keyColor)  // Use the determined key color
