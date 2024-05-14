@@ -8,22 +8,58 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @EnvironmentObject var viewRouter: ViewRouter
+    @State private var logoOpacity = 0.0
+
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer()
-                Image("AppLogo").resizable().scaledToFit().frame(width: 200, height: 200)
-                Text("Keylapp").font(.largeTitle).fontWeight(.bold)
-                Text("Explore customizable keyboard layouts").padding()
-                NavigationLink(destination: MainView()) {
-                    Text("Explore Layouts")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+        VStack {
+            Spacer()
+
+            Image("AppLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .padding(.bottom, 20)
+                .opacity(logoOpacity)
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 1.0)) {
+                        logoOpacity = 1.0
+                    }
                 }
-                Spacer()
+
+            Text("Keylapp")
+                .font(.system(size: 34, weight: .bold, design: .default))
+                .foregroundColor(Color.primary)
+                .padding(.bottom, 10)
+
+            Text("Explore customizable keyboard layouts")
+                .font(.title3)
+                .foregroundColor(Color.secondary)
+                .padding(.bottom, 50)
+
+            Button(action: {
+                withAnimation {
+                    viewRouter.currentView = .main
+                }
+            }) {
+                Text("Explore Layouts")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 280, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(25)
+                    .shadow(radius: 5)
             }
+
+            Spacer()
         }
+        .padding()
+    }
+}
+
+struct WelcomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        WelcomeView().environmentObject(ViewRouter())
     }
 }

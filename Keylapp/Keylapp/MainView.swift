@@ -9,20 +9,27 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedLayoutIndex = 0
-    let layouts = LayoutDataManager.shared.layouts  // Ensure this is populated correctly
+    let layouts = LayoutDataManager.shared.layouts  // Directly access the layouts
 
     var body: some View {
         VStack {
-            if layouts.isEmpty {
+            // CarouselPicker at the top
+            CarouselPicker(
+                selectedIndex: $selectedLayoutIndex,
+                items: layouts.map { $0.name }
+            )
+            .frame(height: 60)  // Adjust the height as needed
+            .padding(.top, 10)  // Add some top padding
+
+            // Display the selected keyboard layout
+            if !layouts.isEmpty {
+                KeyboardGridView(layout: layouts[selectedLayoutIndex])
+                    .frame(maxHeight: .infinity)
+                    .padding(.top, 20)  // Add some top padding
+            } else {
                 Text("No layouts available")
                     .padding()
                     .foregroundColor(.gray)
-            } else {
-                // Use CarouselPicker here
-                CarouselPicker(selectedLayoutIndex: $selectedLayoutIndex, layouts: layouts)
-                    .frame(height: 60)  // Adjust height as needed
-
-                KeyboardGridView(layout: layouts[selectedLayoutIndex])
             }
         }
         .padding()
