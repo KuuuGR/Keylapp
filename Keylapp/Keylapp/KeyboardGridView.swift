@@ -9,7 +9,6 @@ import SwiftUI
 struct KeyboardGridView: View {
     var layout: KeyboardLayout
 
-    // Convert rows to a 2D array
     private var keys: [[String]] {
         [
             layout.firstRow.map { String($0) },
@@ -21,9 +20,7 @@ struct KeyboardGridView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            let screenWidth = geometry.size.width
-            let screenHeight = geometry.size.height
-            let keySize = min(screenWidth / 10, screenHeight / 4) // Ensure keys fit within the screen
+            let keySize = min(geometry.size.width / 10, geometry.size.height / 4) // Ensure keys fit within the screen
 
             VStack(spacing: 10) {
                 ForEach(0..<keys.count, id: \.self) { rowIndex in
@@ -49,10 +46,8 @@ struct KeyboardGridView: View {
     }
 }
 
-
 struct KeyboardGridView_Previews: PreviewProvider {
     static var previews: some View {
         KeyboardGridView(layout: KeyboardLayout(id: "001", name: "QWERTY", firstRow: "qwfpbjluy;", secondRow: "arstgmneio", thirdRow: "zxcdvkh,./", fourthRow: "", keyColors: ["s": .blue,]))
     }
 }
-
