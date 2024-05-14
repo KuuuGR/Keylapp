@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class OrientationViewController: UIViewController {
     var orientationMask = UIInterfaceOrientationMask.all
