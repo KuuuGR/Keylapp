@@ -55,6 +55,28 @@ struct WelcomeView: View {
             Spacer()
         }
         .padding()
+        .overlay(
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Text("Version \(Bundle.main.version) (\(Bundle.main.build))")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding([.bottom, .trailing], 10)
+                }
+            }
+        )
+    }
+}
+
+extension Bundle {
+    var version: String {
+        return infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+    }
+
+    var build: String {
+        return infoDictionary?["CFBundleVersion"] as? String ?? "Unknown"
     }
 }
 

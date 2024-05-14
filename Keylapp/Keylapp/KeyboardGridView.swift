@@ -17,7 +17,7 @@ struct KeyboardGridView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            let buttonSize = min(geometry.size.width / 10, geometry.size.height / 4)
+            let buttonSize = min(geometry.size.width / 13, geometry.size.height / 4)
 
             VStack(alignment: .leading, spacing: 10) {
                 ForEach(Array(keys.enumerated()), id: \.offset) { index, row in
