@@ -9,24 +9,28 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedLayoutIndex = 0
-    let layouts = LayoutDataManager.shared.layouts
+    let layouts = LayoutDataManager.shared.layouts  // Ensure this is populated correctly
 
     var body: some View {
         VStack {
-            Picker("Select Layout", selection: $selectedLayoutIndex) {
-                ForEach(0..<layouts.count, id: \.self) { index in
-                    Text(layouts[index].name).tag(index)
-                }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
-
-            if !layouts.isEmpty {
-                KeyboardGridView(layout: layouts[selectedLayoutIndex])
-            } else {
+            if layouts.isEmpty {
                 Text("No layouts available")
+                    .padding()
+                    .foregroundColor(.gray)
+            } else {
+                // Use CarouselPicker here
+                CarouselPicker(selectedLayoutIndex: $selectedLayoutIndex, layouts: layouts)
+                    .frame(height: 60)  // Adjust height as needed
+
+                KeyboardGridView(layout: layouts[selectedLayoutIndex])
             }
         }
         .padding()
+    }
+}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
     }
 }

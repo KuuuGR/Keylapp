@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071361B42BF3C44800526B47 /* CarouselPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071361B32BF3C44800526B47 /* CarouselPicker.swift */; };
 		075D54312BF27B4900386B86 /* KeylappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54302BF27B4900386B86 /* KeylappApp.swift */; };
 		075D54332BF27B4900386B86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54322BF27B4900386B86 /* ContentView.swift */; };
 		075D54352BF27B4D00386B86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075D54342BF27B4D00386B86 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071361B32BF3C44800526B47 /* CarouselPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPicker.swift; sourceTree = "<group>"; };
 		075D542D2BF27B4900386B86 /* Keylapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keylapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		075D54302BF27B4900386B86 /* KeylappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeylappApp.swift; sourceTree = "<group>"; };
 		075D54322BF27B4900386B86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				075D545A2BF27E9B00386B86 /* WelcomeView.swift */,
 				076EF6F02BF2B9D3003C62B0 /* UIViewController.swift */,
 				076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */,
+				071361B32BF3C44800526B47 /* CarouselPicker.swift */,
 			);
 			name = "View Files";
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				075D545D2BF2815000386B86 /* MainView.swift in Sources */,
 				076EF6F32BF2BBB1003C62B0 /* OrientationViewController.swift in Sources */,
 				076EF6F12BF2B9D3003C62B0 /* UIViewController.swift in Sources */,
+				071361B42BF3C44800526B47 /* CarouselPicker.swift in Sources */,
 				075D546F2BF2A66400386B86 /* KeyboardLayoutView.swift in Sources */,
 				075D545F2BF28EB400386B86 /* KeyboardLayout.swift in Sources */,
 				075D54672BF2916000386B86 /* KeyboardGridView.swift in Sources */,
