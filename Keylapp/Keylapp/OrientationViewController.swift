@@ -14,7 +14,6 @@ class OrientationViewController: UIViewController {
         return orientationMask
     }
 
-    // Function to change the orientation
     func setOrientation(_ orientation: UIInterfaceOrientationMask) {
         orientationMask = orientation
         setNeedsUpdateOfSupportedInterfaceOrientations()
