@@ -6,8 +6,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct KeyboardGridView: View {
     var layout: KeyboardLayout
     @State private var showComparison = false
@@ -29,8 +27,8 @@ struct KeyboardGridView: View {
                             let keyParts = key.split(separator: "_")
                             let keyChar = String(keyParts[0])
                             let keyColor = layout.keyColors[key] ?? .gray
-                            let displayChar = showComparison ? layout.comparisonKeys[keyChar] ?? keyChar : keyChar
-                            
+                            let displayChar = layout.comparisonKeys[keyChar] ?? keyChar
+
                             Button(action: {
                                 if index == 3 && colIndex == 0 {
                                     showComparison.toggle()
@@ -38,12 +36,28 @@ struct KeyboardGridView: View {
                                     print("\(keyChar) tapped")
                                 }
                             }) {
-                                Text(displayChar)
-                                    .font(.system(size: buttonSize / 2, weight: .bold))
-                                    .frame(width: buttonSize, height: buttonSize)
-                                    .background(keyColor)  // Use the determined key color
-                                    .foregroundColor(.white)
-                                    .cornerRadius(5)
+                                VStack {
+                                    if showComparison {
+                                        Text(keyChar)
+                                            .font(.system(size: buttonSize / 2, weight: .bold))
+                                            .foregroundColor(.white)
+                                            .background(keyColor)
+                                            .cornerRadius(5)
+
+                                        Text(displayChar.split(separator: "/").last ?? "")
+                                            .font(.system(size: buttonSize / 4))
+                                            .foregroundColor(Color.logoGreen)  // Different color for QWERTY comparison
+                                    } else {
+                                        Text(keyChar)
+                                            .font(.system(size: buttonSize / 2, weight: .bold))
+                                            .foregroundColor(.white)
+                                            .background(keyColor)
+                                            .cornerRadius(5)
+                                    }
+                                }
+                                .frame(width: buttonSize, height: buttonSize)
+                                .background(keyColor)
+                                .cornerRadius(5)
                             }
                         }
                     }
