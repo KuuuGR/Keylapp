@@ -39,16 +39,16 @@ class LayoutDataManager {
 
             // Set colors for the specified keys in the second row
             var keyColors: [String: Color] = [
-                "\(startChar)_3": .red,
-                "\(endChar)_6": .blue
+                "\(startChar)_3": .logoBlue,
+                "\(endChar)_6": .logoBlue
             ]
 
             // Add colors for the first three and last three keys in the fourth row
             let fourthRowChars = Array(fourthRow)
             if fourthRowChars.count >= 10 {
                 for i in 0..<4 {
-                    keyColors["\(fourthRowChars[i])_\(i)"] = .graphiteGray
-                    keyColors["\(fourthRowChars[9 - i])_\(9 - i)"] = .graphiteGray
+                    keyColors["\(fourthRowChars[i])_\(i)"] = .logoJeans
+                    keyColors["\(fourthRowChars[9 - i])_\(9 - i)"] = .logoJeans
                 }
                 keyColors["\(fourthRowChars[4])_4"] = .gray
                 keyColors["\(fourthRowChars[5])_5"] = .gray
