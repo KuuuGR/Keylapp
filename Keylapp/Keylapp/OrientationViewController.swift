@@ -9,15 +9,15 @@ import UIKit
 import SwiftUI
 
 class OrientationViewController: UIViewController {
-    var orientationMask: UIInterfaceOrientationMask = .all
-    
+    var orientationMask = UIInterfaceOrientationMask.all
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return orientationMask
     }
-    
+
     // Function to change the orientation
     func setOrientation(_ orientation: UIInterfaceOrientationMask) {
         orientationMask = orientation
-        UIViewController.attemptRotationToDeviceOrientation()
+        setNeedsUpdateOfSupportedInterfaceOrientations()
     }
 }
