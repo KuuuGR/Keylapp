@@ -5,7 +5,6 @@
 //  Created by Grzegorz Kulesza on 13/05/2024.
 //
 
-// KeyboardLayoutData.swift
 import Foundation
 import SwiftUI
 
@@ -271,3 +270,6 @@ let rawLayouts: [String] = [
 ]
 
 let keyboardLayouts: [KeyboardLayout] = LayoutDataManager.shared.parseRawLayouts(rawLayouts)
+
+
+//Usefull symbol source: https://symbl.cc/en/search/?q=tab
