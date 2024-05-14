@@ -47,7 +47,7 @@ struct WelcomeView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 280, height: 50)
-                    .background(Color.blue)
+                    .background(Color.logoJeans)
                     .cornerRadius(25)
                     .shadow(radius: 5)
             }
