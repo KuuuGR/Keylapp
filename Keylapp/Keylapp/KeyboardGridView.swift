@@ -21,9 +21,9 @@ struct KeyboardGridView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            // Calculate the size of the keys to fit the available space
-            let keyWidth = geometry.size.width / CGFloat(keys.max(by: { $0.count < $1.count })?.count ?? 10)
-            let keyHeight = keyWidth // Ensuring keys are square
+            let screenWidth = geometry.size.width
+            let screenHeight = geometry.size.height
+            let keySize = min(screenWidth / 10, screenHeight / 4) // Ensure keys fit within the screen
 
             VStack(spacing: 10) {
                 ForEach(0..<keys.count, id: \.self) { rowIndex in
@@ -31,11 +31,10 @@ struct KeyboardGridView: View {
                         ForEach(0..<keys[rowIndex].count, id: \.self) { columnIndex in
                             Button(action: {
                                 print("\(keys[rowIndex][columnIndex]) tapped")
-                                // Add actions here for button tap
                             }) {
                                 Text(keys[rowIndex][columnIndex])
-                                    .font(.system(size: keyWidth * 0.5, weight: .bold)) // Larger and bold text
-                                    .frame(width: keyWidth, height: keyHeight)
+                                    .font(.system(size: keySize * 0.4, weight: .bold)) // Larger and bold text
+                                    .frame(width: keySize, height: keySize)
                                     .background(layout.keyColors[keys[rowIndex][columnIndex], default: Color.gray])  // Use default color if specific color is not set
                                     .foregroundColor(.white)
                                     .cornerRadius(5)
@@ -49,3 +48,11 @@ struct KeyboardGridView: View {
         }
     }
 }
+
+
+struct KeyboardGridView_Previews: PreviewProvider {
+    static var previews: some View {
+        KeyboardGridView(layout: KeyboardLayout(id: "001", name: "QWERTY", firstRow: "qwfpbjluy;", secondRow: "arstgmneio", thirdRow: "zxcdvkh,./", fourthRow: "", keyColors: ["s": .blue,]))
+    }
+}
+

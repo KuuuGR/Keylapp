@@ -22,13 +22,13 @@ class LayoutDataManager {
 
         for (index, layout) in rawLayouts.enumerated() {
             let lines = layout.split(separator: "\n").map { String($0) }
-            if lines.count < 4 { continue }
+            guard lines.count == 4 else { continue }
             
             let name = lines[0]
-            let firstRow = lines[1]
-            let secondRow = lines[2]
-            let thirdRow = lines[3]
-            let fourthRow = lines.count > 4 ? lines[4] : ""  // Handle fourth row if available
+            let firstRow = lines[1].padding(toLength: 10, withPad: " ", startingAt: 0)
+            let secondRow = lines[2].padding(toLength: 10, withPad: " ", startingAt: 0)
+            let thirdRow = lines[3].padding(toLength: 10, withPad: " ", startingAt: 0)
+            let fourthRow = lines.count > 4 ? lines[4].padding(toLength: 10, withPad: " ", startingAt: 0) : String(repeating: " ", count: 10)
             
             let keyColors: [String: Color] = [
                 String(firstRow.first ?? " "): .red,  // Example color assignment
