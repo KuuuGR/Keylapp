@@ -44,9 +44,9 @@ struct KeyboardGridView: View {
                                             .background(keyColor)
                                             .cornerRadius(5)
 
-                                        Text(displayChar.split(separator: "/").last ?? "")
+                                        Text(displayChar.split(separator: "").last ?? "")
                                             .font(.system(size: buttonSize / 4))
-                                            .foregroundColor(Color.logoGreen)  // Different color for QWERTY comparison
+                                            .foregroundColor(Color.logoJeans)  // Different color for QWERTY comparison
                                     } else {
                                         Text(keyChar)
                                             .font(.system(size: buttonSize / 2, weight: .bold))
