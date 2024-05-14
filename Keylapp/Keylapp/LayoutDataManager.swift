@@ -16,7 +16,7 @@ class LayoutDataManager {
     }
 
     private init() {}
-    
+
     func parseRawLayouts(_ rawLayouts: [String]) -> [KeyboardLayout] {
         var keyboardLayouts: [KeyboardLayout] = []
 
@@ -28,17 +28,11 @@ class LayoutDataManager {
             let firstRow = lines[1]
             let secondRow = lines[2]
             let thirdRow = lines[3]
-            
-            // Get the 4th character from the start and end of the second row
-            let startIdx = secondRow.index(secondRow.startIndex, offsetBy: 3)
-            let endIdx = secondRow.index(secondRow.endIndex, offsetBy: -4)
-            
-            let startChar = secondRow[startIdx]
-            let endChar = secondRow[endIdx]
+            let fourthRow = lines.count > 4 ? lines[4] : ""  // Handle fourth row if available
             
             let keyColors: [String: Color] = [
-                String(startChar): .red,
-                String(endChar): .blue
+                String(firstRow.first ?? " "): .red,  // Example color assignment
+                String(thirdRow.last ?? " "): .blue   // Example color assignment
             ]
             
             let keyboardLayout = KeyboardLayout(
@@ -47,6 +41,7 @@ class LayoutDataManager {
                 firstRow: firstRow,
                 secondRow: secondRow,
                 thirdRow: thirdRow,
+                fourthRow: fourthRow,
                 keyColors: keyColors
             )
             
