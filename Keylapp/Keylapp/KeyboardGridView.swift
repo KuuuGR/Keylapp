@@ -10,44 +10,53 @@ struct KeyboardGridView: View {
     var layout: KeyboardLayout
 
     private var keys: [[String]] {
-        [
-            layout.firstRow.map { String($0) },
-            layout.secondRow.map { String($0) },
-            layout.thirdRow.map { String($0) },
-            layout.fourthRow.map { String($0) }
-        ]
+        [layout.firstRow, layout.secondRow, layout.thirdRow, layout.fourthRow].map { row in
+            row.enumerated().map { (index, char) in "\(char)_\(index)" }
+        }
     }
 
     var body: some View {
         GeometryReader { geometry in
-            let keySize = min(geometry.size.width / 10, geometry.size.height / 4) // Ensure keys fit within the screen
+            let buttonSize = min(geometry.size.width / 10, geometry.size.height / 4)
 
-            VStack(spacing: 10) {
-                ForEach(0..<keys.count, id: \.self) { rowIndex in
-                    HStack(spacing: 10) {
-                        ForEach(0..<keys[rowIndex].count, id: \.self) { columnIndex in
+            VStack(alignment: .leading, spacing: 10) {
+                ForEach(Array(keys.enumerated()), id: \.offset) { index, row in
+                    HStack {
+                        ForEach(Array(row.enumerated()), id: \.offset) { colIndex, key in
+                            let keyParts = key.split(separator: "_")
+                            let keyChar = String(keyParts[0])
+                            let keyColor = layout.keyColors[key] ?? .gray
+                            
                             Button(action: {
-                                print("\(keys[rowIndex][columnIndex]) tapped")
+                                print("\(keyChar) tapped")
+                                // Add actions here for button tap
                             }) {
-                                Text(keys[rowIndex][columnIndex])
-                                    .font(.system(size: keySize * 0.4, weight: .bold)) // Larger and bold text
-                                    .frame(width: keySize, height: keySize)
-                                    .background(layout.keyColors[keys[rowIndex][columnIndex], default: Color.gray])  // Use default color if specific color is not set
+                                Text(keyChar)
+                                    .font(.system(size: buttonSize / 2, weight: .bold))
+                                    .frame(width: buttonSize, height: buttonSize)
+                                    .background(keyColor)  // Use the determined key color
                                     .foregroundColor(.white)
                                     .cornerRadius(5)
                             }
                         }
                     }
                 }
-                Spacer()
             }
-            .padding()
+            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
         }
     }
 }
 
 struct KeyboardGridView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyboardGridView(layout: KeyboardLayout(id: "001", name: "QWERTY", firstRow: "qwfpbjluy;", secondRow: "arstgmneio", thirdRow: "zxcdvkh,./", fourthRow: "", keyColors: ["s": .blue,]))
+        KeyboardGridView(layout: KeyboardLayout(
+            id: "001",
+            name: "QWERTY",
+            firstRow: "qwfpbjluy;",
+            secondRow: "arstgmneio",
+            thirdRow: "zxcdvkh,./",
+            fourthRow: "         ",
+            keyColors: ["q_0": .red, "a_0": .blue, "z_0": .black, "x_1": .black, "c_2": .black, "m_7": .black, "/_9": .black]
+        ))
     }
 }

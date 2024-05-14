@@ -19,7 +19,7 @@ struct CarouselPicker: View {
                     Text(items[index])
                         .font(.system(size: (keySize / 2) * 0.4, weight: .bold)) // Adjust text size
                         .frame(width: keySize * 2, height: keySize / 2) // Adjust frame size
-                        .background(index == selectedIndex ? Color.blue : Color.gray)
+                        .background(index == selectedIndex ? Color.green : Color.graphiteGray)
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .onTapGesture {
