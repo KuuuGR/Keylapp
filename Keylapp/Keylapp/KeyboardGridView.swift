@@ -10,6 +10,7 @@ struct KeyboardGridView: View {
     var layout: KeyboardLayout
     @Binding var selectedComparisonLayoutIndex: Int  // Bind to the selected index from MainView
     @State private var showComparison = false
+    @State private var isSoundEnabled = false  // State variable to track sound playback
 
     private var keys: [[String]] {
         [layout.firstRow, layout.secondRow, layout.thirdRow, layout.fourthRow].map { row in
@@ -45,7 +46,11 @@ struct KeyboardGridView: View {
                             let displayChar = comparisonKeys[keyChar] ?? keyChar
 
                             Button(action: {
-                                SoundManager.shared.playSound(for: keyChar)  // Play sound on button press
+                                if index == 3 && colIndex == (row.count - 3) {  // Third from the end column key in fourth row
+                                    isSoundEnabled.toggle()
+                                } else if isSoundEnabled {
+                                    SoundManager.shared.playSound(for: keyChar)  // Play sound only if enabled
+                                }
                                 if index == 3 && colIndex == 0 {
                                     showComparison.toggle()
                                 } else {
