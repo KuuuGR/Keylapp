@@ -20,7 +20,10 @@ struct MainView: View {
                 CarouselPicker(
                     selectedIndex: $selectedLayoutIndex,
                     items: layouts.map { $0.name },
-                    keySize: keySize
+                    keySize: keySize,
+                    backgroundColor: .gray,
+                    selectedBackgroundColor: .blue,
+                    textColor: .white
                 )
                 .padding(.top, 10)  // Add some top padding
 
@@ -42,7 +45,10 @@ struct MainView: View {
                 CarouselPicker(
                     selectedIndex: $selectedComparisonLayoutIndex,
                     items: layouts.map { $0.name },
-                    keySize: keySize / 2  // Make the bottom CarouselPicker half the size
+                    keySize: keySize / 2,  // Make the bottom CarouselPicker half the size
+                    backgroundColor: .gray,
+                    selectedBackgroundColor: .blue,
+                    textColor: .white
                 )
                 .padding(.bottom, 10)  // Add some bottom padding
             }

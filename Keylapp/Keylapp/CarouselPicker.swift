@@ -11,6 +11,9 @@ struct CarouselPicker: View {
     @Binding var selectedIndex: Int
     var items: [String]
     var keySize: CGFloat
+    var backgroundColor: Color
+    var selectedBackgroundColor: Color
+    var textColor: Color
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -19,9 +22,9 @@ struct CarouselPicker: View {
                     Text(items[index])
                         .font(.system(size: (keySize / 2) * 0.4, weight: .bold)) // Adjust text size
                         .frame(width: keySize * 2, height: keySize / 2) // Adjust frame size
-                        .background(index == selectedIndex ? Color.logoRed : Color.logoJeans)
+                        .background(index == selectedIndex ? selectedBackgroundColor : backgroundColor)
                         .cornerRadius(10)
-                        .foregroundColor(.white)
+                        .foregroundColor(textColor)
                         .onTapGesture {
                             withAnimation {
                                 selectedIndex = index
@@ -37,6 +40,6 @@ struct CarouselPicker: View {
 
 struct CarouselPicker_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselPicker(selectedIndex: .constant(0), items: ["Item 1", "Item 2", "Item 3"], keySize: 40)
+        CarouselPicker(selectedIndex: .constant(0), items: ["Item 1", "Item 2", "Item 3"], keySize: 40, backgroundColor: .gray, selectedBackgroundColor: .blue, textColor: .white)
     }
 }
