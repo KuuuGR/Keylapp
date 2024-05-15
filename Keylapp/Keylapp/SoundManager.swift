@@ -1,8 +1,7 @@
+// SoundManager.swift
+// Keylapp
 //
-//  SoundManager.swift
-//  Keylapp
-//
-//  Created by Grzegorz Kulesza on 15/05/2024.
+// Created by Grzegorz Kulesza on 15/05/2024.
 //
 
 import Foundation
@@ -13,9 +12,11 @@ class SoundManager {
     
     private init() {}
     
+    private let keySoundMappings: [String: SystemSoundID] = ["m": 1049, "v": 1058, "A": 1017, "D": 1020, "🥭": 1093, "🥬": 1092, "a": 1037, "r": 1054, "g": 1043, "/": 1010, ",": 1007, "B": 1018, "\n": 1001, "x": 1060, "n": 1050, "🍓": 1081, " ": 1032, "🐉": 1084, "🥥": 1090, "🍒": 1080, "\'": 1004, "0": 1011, "\"": 1003, "🌿": 1067, "🧀": 1094, "W": 1035, "T": 1034, "S": 1033, "🍑": 1079, "🍊": 1073, "R": 1002, "y": 1061, "s": 1055, "w": 1059, "🍍": 1076, "🍉": 1072, "N": 1028, "d": 1040, "🌽": 1066, "P": 1030, "j": 1046, "h": 1044, "G": 1022, "🥔": 1087, "🍈": 1071, "e": 1041, "3": 1013, "🥦": 1091, "c": 1039, "🥕": 1088, "M": 1027, "🥝": 1089, "l": 1048, ";": 1015, "Q": 1031, ")": 1006, "b": 1038, "f": 1042, "t": 1056, "L": 1026, "2": 1012, "Y": 1036, "↹": 1064, "🍌": 1075, "7": 1014, "?": 1016, "E": 1021, "’": 1063, "🥑": 1085, "q": 1053, "🍋": 1074, "🍇": 1070, "i": 1045, "z": 1062, "🧅": 1096, "u": 1057, "🥒": 1086, "O": 1029, "🌶️": 1065, "🧄": 1095, "🍅": 1068, "🫐": 1097, "-": 1008, "🍎": 1077, "🍐": 1078, "o": 1051, "K": 1025, ".": 1009, "H": 1023, "k": 1047, "🎃": 1083, "🍠": 1082, "(": 1005, "p": 1052, "J": 1024, "C": 1019, "🍆": 1069]
+    
     func playSound(for character: String) {
-        guard let asciiValue = character.unicodeScalars.first?.value else { return }
-        let soundID = 1000 + asciiValue
-        AudioServicesPlaySystemSound(SystemSoundID(soundID))
+        if let soundID = keySoundMappings[character] {
+            AudioServicesPlaySystemSound(soundID)
+        }
     }
 }
