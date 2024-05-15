@@ -266,7 +266,13 @@ let rawLayouts: [String] = [
     xldpgzkou;
     nrtswyheia
     qjmcvbf',.
+    """,
     """
+    Memex🌿🍐🍇
+    🥭🍒🥝🌽🥔🍊🍋🥦🫐🍅
+    🥑🍉🥬🌶️🍑🍎🥕🍓🥒🍈
+    🧄🥥🍌🧅🧀🎃🍠🍆🍍🐉
+    """,
 ]
 
 let keyboardLayouts: [KeyboardLayout] = LayoutDataManager.shared.parseRawLayouts(rawLayouts)

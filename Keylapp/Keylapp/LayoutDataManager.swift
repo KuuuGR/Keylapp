@@ -84,3 +84,18 @@ class LayoutDataManager {
         return comparison
     }
 }
+
+
+extension String {
+    func padding(toLength newLength: Int, withPad padString: String, startingAt padIndex: Int) -> String {
+        let currentLength = self.count
+        
+        if currentLength < newLength {
+            let neededPadding = newLength - currentLength
+            let padding = String(repeating: padString, count: neededPadding)
+            return self + padding
+        } else {
+            return String(self.prefix(newLength))
+        }
+    }
+}
