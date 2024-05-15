@@ -21,11 +21,11 @@ struct MainView: View {
                     selectedIndex: $selectedLayoutIndex,
                     items: layouts.map { $0.name },
                     keySize: keySize,
-                    backgroundColor: .gray,
-                    selectedBackgroundColor: .blue,
+                    backgroundColor: .logoJeans,
+                    selectedBackgroundColor: .logoRed,
                     textColor: .white
                 )
-                .padding(.top, 10)  // Add some top padding
+                .padding(.top, 5)  // Minimal top padding
 
                 // Display the selected keyboard layout
                 if !layouts.isEmpty {
@@ -46,11 +46,11 @@ struct MainView: View {
                     selectedIndex: $selectedComparisonLayoutIndex,
                     items: layouts.map { $0.name },
                     keySize: keySize / 2,  // Make the bottom CarouselPicker half the size
-                    backgroundColor: .gray,
-                    selectedBackgroundColor: .blue,
+                    backgroundColor: .logoJeans,
+                    selectedBackgroundColor: .logoBlue,
                     textColor: .white
                 )
-                .padding(.bottom, 10)  // Add some bottom padding
+                .padding(.bottom, 5)  // Minimal bottom padding
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
         }

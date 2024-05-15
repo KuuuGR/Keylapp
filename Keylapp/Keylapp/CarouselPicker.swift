@@ -32,7 +32,7 @@ struct CarouselPicker: View {
                         }
                 }
             }
-            .padding()
+            .padding(.horizontal, 5) // Minimal horizontal padding
         }
         .frame(height: keySize) // Set the frame height based on key size
     }
@@ -40,6 +40,6 @@ struct CarouselPicker: View {
 
 struct CarouselPicker_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselPicker(selectedIndex: .constant(0), items: ["Item 1", "Item 2", "Item 3"], keySize: 40, backgroundColor: .gray, selectedBackgroundColor: .blue, textColor: .white)
+        CarouselPicker(selectedIndex: .constant(0), items: ["Item 1", "Item 2", "Item 3"], keySize: 40, backgroundColor: .logoJeans, selectedBackgroundColor: .logoRed, textColor: .white)
     }
 }
