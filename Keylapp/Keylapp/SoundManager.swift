@@ -14,7 +14,8 @@ class SoundManager {
     private init() {}
     
     func playSound(for character: String) {
-        // Example sound ID for key press. You can map different characters to different sounds if needed.
-        AudioServicesPlaySystemSound(1104)
+        guard let asciiValue = character.unicodeScalars.first?.value else { return }
+        let soundID = 1000 + asciiValue
+        AudioServicesPlaySystemSound(SystemSoundID(soundID))
     }
 }
