@@ -15,7 +15,7 @@ struct MainView: View {
         GeometryReader { geometry in
             let keySize = min(geometry.size.width / 10, geometry.size.height / 4) // Ensure keys fit within the screen
 
-            VStack {
+            VStack(spacing: 0) {
                 // CarouselPicker at the top
                 CarouselPicker(
                     selectedIndex: $selectedLayoutIndex,
@@ -31,7 +31,7 @@ struct MainView: View {
                         selectedComparisonLayoutIndex: $selectedComparisonLayoutIndex
                     )
                     .frame(maxHeight: .infinity)
-                    .padding(.top, 20)  // Add some top padding
+                    .padding(.vertical, 10)  // Add some vertical padding
                 } else {
                     Text("No layouts available")
                         .padding()
@@ -46,7 +46,7 @@ struct MainView: View {
                 )
                 .padding(.bottom, 10)  // Add some bottom padding
             }
-            .padding()
+            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
         }
     }
 }
