@@ -12,49 +12,52 @@ struct WelcomeView: View {
     @State private var logoOpacity = 0.0
 
     var body: some View {
-        VStack {
+        HStack {
             Spacer()
+            
+            VStack(spacing: 20) {
+                Spacer()
 
-            Image("AppLogo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200)
-                .padding(.bottom, 20)
-                .opacity(logoOpacity)
-                .onAppear {
-                    withAnimation(.easeInOut(duration: 1.0)) {
-                        logoOpacity = 1.0
+                Image("AppLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150, height: 150)  // Adjusted size for better fit
+                    .opacity(logoOpacity)
+                    .onAppear {
+                        withAnimation(.easeInOut(duration: 1.0)) {
+                            logoOpacity = 1.0
+                        }
                     }
+
+                Text("Keylapp")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+
+                Text("Explore customizable keyboard layouts")
+                    .font(.title3)
+                    .foregroundColor(Color.secondary)
+
+                Button(action: {
+                    withAnimation {
+                        viewRouter.currentView = .main
+                    }
+                }) {
+                    Text("Explore Layouts")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 280, height: 50)
+                        .background(Color.logoJeans)
+                        .cornerRadius(10)
+                        .shadow(radius: 10)
                 }
 
-            Text("Keylapp")
-                .font(.system(size: 34, weight: .bold, design: .default))
-                .foregroundColor(Color.primary)
-                .padding(.bottom, 10)
-
-            Text("Explore customizable keyboard layouts")
-                .font(.title3)
-                .foregroundColor(Color.secondary)
-                .padding(.bottom, 50)
-
-            Button(action: {
-                withAnimation {
-                    viewRouter.currentView = .main
-                }
-            }) {
-                Text("Explore Layouts")
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 280, height: 50)
-                    .background(Color.logoJeans)
-                    .cornerRadius(25)
-                    .shadow(radius: 5)
+                Spacer()
             }
-
+            .padding(.horizontal)
             Spacer()
         }
-        .padding()
+        .padding(.horizontal)  // Adds horizontal padding to keep elements away from the very edge
         .overlay(
             VStack {
                 Spacer()
