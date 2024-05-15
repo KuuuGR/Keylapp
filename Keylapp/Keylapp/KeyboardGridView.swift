@@ -45,6 +45,7 @@ struct KeyboardGridView: View {
                             let displayChar = comparisonKeys[keyChar] ?? keyChar
 
                             Button(action: {
+                                SoundManager.shared.playSound(for: keyChar)  // Play sound on button press
                                 if index == 3 && colIndex == 0 {
                                     showComparison.toggle()
                                 } else {

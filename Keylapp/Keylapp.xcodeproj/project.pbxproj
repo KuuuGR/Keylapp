@@ -28,6 +28,7 @@
 		075D54712BF2AC5800386B86 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54702BF2AC5800386B86 /* ViewRouter.swift */; };
 		076EF6F12BF2B9D3003C62B0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076EF6F02BF2B9D3003C62B0 /* UIViewController.swift */; };
 		076EF6F32BF2BBB1003C62B0 /* OrientationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */; };
+		07B845572BF55F4E0097A74C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B845562BF55F4E0097A74C /* SoundManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		075D54702BF2AC5800386B86 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		076EF6F02BF2B9D3003C62B0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationViewController.swift; sourceTree = "<group>"; };
+		07B845562BF55F4E0097A74C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				075D546C2BF2A4B800386B86 /* KeyboardLayoutData.swift */,
 				071361B52BF3F20700526B47 /* ColorExtensions.swift */,
 				075D54602BF28EF700386B86 /* LayoutDataManager.swift */,
+				07B845562BF55F4E0097A74C /* SoundManager.swift */,
 			);
 			name = "Model Files";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				075D545B2BF27E9B00386B86 /* WelcomeView.swift in Sources */,
 				075D54312BF27B4900386B86 /* KeylappApp.swift in Sources */,
 				071361B62BF3F20700526B47 /* ColorExtensions.swift in Sources */,
+				07B845572BF55F4E0097A74C /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
