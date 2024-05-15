@@ -92,7 +92,7 @@ struct KeyboardGridView_Previews: PreviewProvider {
                 firstRow: "qwfpbjluy;",
                 secondRow: "arstgmneio",
                 thirdRow: "zxcdvkh,./",
-                fourthRow: "         ",
+                fourthRow: "          ",
                 keyColors: ["q_0": .red, "a_0": .blue, "z_0": .black, "x_1": .black, "c_2": .black, "m_7": .black, "/_9": .black]
             ),
             selectedComparisonLayoutIndex: .constant(0)  // Provide a constant for the preview
