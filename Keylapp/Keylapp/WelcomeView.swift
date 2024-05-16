@@ -10,7 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var logoOpacity = 0.0
-    @State private var showHelp = false  // State to control the display of the help modal
+    @State private var activeSheet: ActiveSheet?
 
     var body: some View {
         VStack {
@@ -51,7 +51,7 @@ struct WelcomeView: View {
                 }
                 
                 Button(action: {
-                    showHelp = true  // Toggle the state to show the help modal
+                    activeSheet = .help
                 }) {
                     Text("ⓘ")
                         .font(.title)
@@ -61,9 +61,6 @@ struct WelcomeView: View {
                         .frame(width: 60, height: 40)
                         .background(Color.logoOrange)
                         .cornerRadius(10)
-                }
-                .sheet(isPresented: $showHelp) {
-                    HelpView()
                 }
             }
 
@@ -82,9 +79,11 @@ struct WelcomeView: View {
                 }
             }
         )
-        .sheet(isPresented: $showHelp) {
-            // Your help view content here
-            HelpView()  // Assuming you have a HelpView to show
+        .sheet(item: $activeSheet) { item in
+            switch item {
+            case .help:
+                HelpView()
+            }
         }
     }
 }
