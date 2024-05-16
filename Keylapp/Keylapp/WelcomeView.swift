@@ -6,6 +6,14 @@ struct WelcomeView: View {
 
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Text("Version \(Bundle.main.version) (\(Bundle.main.build))")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                    .padding([.top, .trailing], 5)
+            }
+
             Spacer()
 
             Image("AppLogoAlter")
@@ -60,15 +68,6 @@ struct WelcomeView: View {
             Spacer()
         }
         .padding()
-        .overlay(
-            HStack {
-                Spacer()
-                Text("Version \(Bundle.main.version) (\(Bundle.main.build))")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .padding([.top, .trailing], 10)
-            }
-        )
     }
 }
 
