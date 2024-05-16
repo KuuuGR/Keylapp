@@ -1,10 +1,3 @@
-//
-//  WelcomeView.swift
-//  Keylapp
-//
-//  Created by Grzegorz Kulesza on 13/05/2024.
-//
-
 import SwiftUI
 
 struct WelcomeView: View {
@@ -15,10 +8,10 @@ struct WelcomeView: View {
         VStack {
             Spacer()
 
-            Image("AppLogo")
+            Image("AppLogoAlter")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 200, height: 200)
+                .frame(width: 600, height: 200)
                 .opacity(logoOpacity)
                 .onAppear {
                     withAnimation(.easeInOut(duration: 1.0)) {
@@ -50,7 +43,8 @@ struct WelcomeView: View {
                 }
                 
                 Button(action: {
-                    // Action for help button
+                    // Perform the help action, such as displaying a modal or navigating to a help view
+                    print("Help Button Tapped")
                 }) {
                     Text("ⓘ")
                         .font(.title)
@@ -67,15 +61,12 @@ struct WelcomeView: View {
         }
         .padding()
         .overlay(
-            VStack {
+            HStack {
                 Spacer()
-                HStack {
-                    Spacer()
-                    Text("Version \(Bundle.main.version) (\(Bundle.main.build))")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .padding([.bottom, .trailing], 10)
-                }
+                Text("Version \(Bundle.main.version) (\(Bundle.main.build))")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                    .padding([.top, .trailing], 10)
             }
         )
     }
