@@ -12,31 +12,29 @@ struct WelcomeView: View {
     @State private var logoOpacity = 0.0
 
     var body: some View {
-        HStack {
+        VStack {
             Spacer()
-            
-            VStack(spacing: 20) {
-                Spacer()
 
-                Image("AppLogo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 150)  // Adjusted size for better fit
-                    .opacity(logoOpacity)
-                    .onAppear {
-                        withAnimation(.easeInOut(duration: 1.0)) {
-                            logoOpacity = 1.0
-                        }
+            Image("AppLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .opacity(logoOpacity)
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 1.0)) {
+                        logoOpacity = 1.0
                     }
+                }
 
-                Text("Keylapp")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+            Text("Keylapp")
+                .font(.largeTitle)
+                .fontWeight(.bold)
 
-                Text("Explore customizable keyboard layouts")
-                    .font(.title3)
-                    .foregroundColor(Color.secondary)
+            Text("Explore customizable keyboard layouts")
+                .font(.title3)
+                .foregroundColor(Color.secondary)
 
+            HStack(spacing: 5) {
                 Button(action: {
                     withAnimation {
                         viewRouter.currentView = .main
@@ -46,18 +44,28 @@ struct WelcomeView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding()
-                        .frame(width: 280, height: 50)
+                        .frame(width: 200, height: 40)
                         .background(Color.logoJeans)
                         .cornerRadius(10)
-                        .shadow(radius: 10)
                 }
-
-                Spacer()
+                
+                Button(action: {
+                    // Action for help button
+                }) {
+                    Text("ⓘ")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 60, height: 40)
+                        .background(Color.logoOrange)
+                        .cornerRadius(10)
+                }
             }
-            .padding(.horizontal)
+
             Spacer()
         }
-        .padding(.horizontal)  // Adds horizontal padding to keep elements away from the very edge
+        .padding()
         .overlay(
             VStack {
                 Spacer()
