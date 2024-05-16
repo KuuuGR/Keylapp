@@ -52,9 +52,9 @@ struct MainView: View {
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
             .gesture(
-                DragGesture(minimumDistance: 100, coordinateSpace: .local)
+                DragGesture(minimumDistance: 50, coordinateSpace: .local)
                     .onEnded { drag in
-                        if drag.translation.width < -100 { // Detect left swipe
+                        if drag.translation.width > 50 { // Detect right swipe
                             withAnimation {
                                 viewRouter.currentView = .welcome // Navigate back to welcome
                             }
