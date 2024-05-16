@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "LogoAppEtaosin_x1.png",
+      "filename" : "AppMainScreenHelp1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "LogoAppEtaosin_x2.png",
+      "filename" : "AppMainScreenHelp2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "LogoAppEtaosin_x4M.png",
+      "filename" : "AppMainScreenHelp3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
