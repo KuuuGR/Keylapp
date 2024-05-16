@@ -1,17 +1,25 @@
+//
+//  WelcomeView.swift
+//  Keylapp
+//
+//  Created by Grzegorz Kulesza on 13/05/2024.
+//
+
 import SwiftUI
 
 struct WelcomeView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var logoOpacity = 0.0
+    @State private var showHelp = false  // State to control the display of the help modal
 
     var body: some View {
         VStack {
             Spacer()
 
-            Image("AppLogoAlter")
+            Image("AppLogo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 600, height: 200)
+                .frame(width: 200, height: 200)
                 .opacity(logoOpacity)
                 .onAppear {
                     withAnimation(.easeInOut(duration: 1.0)) {
@@ -43,8 +51,7 @@ struct WelcomeView: View {
                 }
                 
                 Button(action: {
-                    // Perform the help action, such as displaying a modal or navigating to a help view
-                    print("Help Button Tapped")
+                    showHelp = true  // Toggle the state to show the help modal
                 }) {
                     Text("ⓘ")
                         .font(.title)
@@ -54,6 +61,9 @@ struct WelcomeView: View {
                         .frame(width: 60, height: 40)
                         .background(Color.logoOrange)
                         .cornerRadius(10)
+                }
+                .sheet(isPresented: $showHelp) {
+                    HelpView()
                 }
             }
 
@@ -68,10 +78,14 @@ struct WelcomeView: View {
                     Text("Version \(Bundle.main.version) (\(Bundle.main.build))")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .padding([.bottom, .trailing], 1)
+                        .padding([.bottom, .trailing], 10)
                 }
             }
         )
+        .sheet(isPresented: $showHelp) {
+            // Your help view content here
+            HelpView()  // Assuming you have a HelpView to show
+        }
     }
 }
 
