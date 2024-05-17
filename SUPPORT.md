@@ -6,7 +6,7 @@ Welcome to the Keylapp support page. We're here to help you with any questions o
 If you need help, have questions about Keylapp, or want to report an issue, please follow these steps:
 
 ### Quick Help
-- **FAQs and Troubleshooting:** Before reaching out, please visit our [FAQ](https://github.com/KuuuGR/Keylapp/FAQ.md) to see if your question has already been answered.
+- **FAQs and Troubleshooting:** Before reaching out, please visit our [FAQ](https://github.com/KuuuGR/Keylapp/blob/main/FAQ.md) to see if your question has already been answered.
 
 ### Contact Us
 - **Email Support:** If you cannot find the answer to your question or need more personalized assistance, email us at [etaosin@gmail.com](mailto:etaosin@gmail.com). We aim to respond to all queries within 24-48 hours.
