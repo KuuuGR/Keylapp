@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0708F2362BF62C0400A508E8 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708F2352BF62C0400A508E8 /* HelpView.swift */; };
 		0708F2382BF6668500A508E8 /* ActiveSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708F2372BF6668500A508E8 /* ActiveSheet.swift */; };
+		0708F2422BF7F0E700A508E8 /* LayoutInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708F2412BF7F0E700A508E8 /* LayoutInfoView.swift */; };
+		0708F2442BF7F35400A508E8 /* KeyboardLayoutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708F2432BF7F35400A508E8 /* KeyboardLayoutInfo.swift */; };
 		071361B42BF3C44800526B47 /* CarouselPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071361B32BF3C44800526B47 /* CarouselPicker.swift */; };
 		071361B62BF3F20700526B47 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071361B52BF3F20700526B47 /* ColorExtensions.swift */; };
 		075D54312BF27B4900386B86 /* KeylappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D54302BF27B4900386B86 /* KeylappApp.swift */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		0708F2352BF62C0400A508E8 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		0708F2372BF6668500A508E8 /* ActiveSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSheet.swift; sourceTree = "<group>"; };
+		0708F2412BF7F0E700A508E8 /* LayoutInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutInfoView.swift; sourceTree = "<group>"; };
+		0708F2432BF7F35400A508E8 /* KeyboardLayoutInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutInfo.swift; sourceTree = "<group>"; };
 		071361B32BF3C44800526B47 /* CarouselPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPicker.swift; sourceTree = "<group>"; };
 		071361B52BF3F20700526B47 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		075D542D2BF27B4900386B86 /* Keylapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keylapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +175,7 @@
 				071361B52BF3F20700526B47 /* ColorExtensions.swift */,
 				075D54602BF28EF700386B86 /* LayoutDataManager.swift */,
 				07B845562BF55F4E0097A74C /* SoundManager.swift */,
+				0708F2432BF7F35400A508E8 /* KeyboardLayoutInfo.swift */,
 			);
 			name = "Model Files";
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */,
 				071361B32BF3C44800526B47 /* CarouselPicker.swift */,
 				0708F2372BF6668500A508E8 /* ActiveSheet.swift */,
+				0708F2412BF7F0E700A508E8 /* LayoutInfoView.swift */,
 			);
 			name = "View Files";
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				075D54332BF27B4900386B86 /* ContentView.swift in Sources */,
 				075D546D2BF2A4B800386B86 /* KeyboardLayoutData.swift in Sources */,
 				075D54712BF2AC5800386B86 /* ViewRouter.swift in Sources */,
+				0708F2422BF7F0E700A508E8 /* LayoutInfoView.swift in Sources */,
 				075D546B2BF2985500386B86 /* SceneDelegate.swift in Sources */,
 				075D54612BF28EF700386B86 /* LayoutDataManager.swift in Sources */,
 				075D545D2BF2815000386B86 /* MainView.swift in Sources */,
@@ -348,6 +355,7 @@
 				0708F2362BF62C0400A508E8 /* HelpView.swift in Sources */,
 				0708F2382BF6668500A508E8 /* ActiveSheet.swift in Sources */,
 				075D545B2BF27E9B00386B86 /* WelcomeView.swift in Sources */,
+				0708F2442BF7F35400A508E8 /* KeyboardLayoutInfo.swift in Sources */,
 				075D54312BF27B4900386B86 /* KeylappApp.swift in Sources */,
 				071361B62BF3F20700526B47 /* ColorExtensions.swift in Sources */,
 				07B845572BF55F4E0097A74C /* SoundManager.swift in Sources */,

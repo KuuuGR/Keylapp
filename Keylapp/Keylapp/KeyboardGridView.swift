@@ -11,6 +11,7 @@ struct KeyboardGridView: View {
     @Binding var selectedComparisonLayoutIndex: Int  // Bind to the selected index from MainView
     @State private var showComparison = false
     @State private var isSoundEnabled = false  // State variable to track sound playback
+    @State private var showLayoutInfo = false  // State to control the display of the layout info view
 
     private var keys: [[String]] {
         [layout.firstRow, layout.secondRow, layout.thirdRow, layout.fourthRow].map { row in
@@ -48,6 +49,8 @@ struct KeyboardGridView: View {
                             Button(action: {
                                 if index == 3 && colIndex == (row.count - 3) {  // Third from the end column key in fourth row
                                     isSoundEnabled.toggle()
+                                } else if index == 3 && colIndex == row.count - 1 {
+                                    showLayoutInfo = true  // Toggle to show the layout info view
                                 } else if isSoundEnabled {
                                     SoundManager.shared.playSound(for: keyChar)  // Play sound only if enabled
                                 }
@@ -85,6 +88,10 @@ struct KeyboardGridView: View {
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+            .sheet(isPresented: $showLayoutInfo) {
+                LayoutInfoView()  // Present the layout info view
+            }
+
         }
     }
 }
