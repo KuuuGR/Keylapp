@@ -12,6 +12,8 @@ struct KeylappApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ViewRouter())
+                .preferredColorScheme(.dark) // Set default color scheme to dark mode
         }
     }
 }
