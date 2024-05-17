@@ -26,7 +26,7 @@ We welcome contributions to Keylapp! If you have ideas for improvements or bug f
 Your privacy is important to us. Read our [Privacy Policy](https://github.com/KuuuGR/Keylapp/blob/main/PrivacyPolicy.md) for detailed information on how we handle and protect your data.
 
 ## License
-Keylapp is open source and made available under the MIT License. For more details, see the [LICENSE](https://github.com/KuuuGR/Keylapp/blob/main/LICENSE) file.
+Keylapp is open source and made available under the MIT License. For more details, see the [LICENSE](https://github.com/KuuuGR/Keylapp/blob/main/LICENSE.md) file.
 
 ---
 
