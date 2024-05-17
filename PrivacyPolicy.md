@@ -4,7 +4,7 @@ Effective date: [2024.05.18]
 
 ## Overview
 
-Keylapp is developed and managed by [Your Name or Company Name]. This privacy policy will explain how our organization uses the personal data we collect from you when you use our mobile application, Keylapp.
+Keylapp is developed and managed by Grzegorz Kulesza. This privacy policy will explain how our organization uses the personal data we collect from you when you use our mobile application, Keylapp.
 
 ## Personal Data We Collect
 
@@ -24,10 +24,8 @@ As Keylapp does not collect, store, or process any personal data, there are no s
 
 ## Changes to Our Privacy Policy
 
-We keep our privacy policy under regular review and place any updates on this web page. This privacy policy was last updated on [Last Updated Date].
+We keep our privacy policy under regular review and place any updates on this web page. This privacy policy was last updated on  2024.05.18.
 
 ## Contact Us
 
-If you have any questions about Keylapp's privacy policy, the data we hold on you, or you would like to exercise any of your data protection rights, please do not hesitate to contact us at [Your Contact Information].
-
-[Your Contact Information]
+If you have any questions about Keylapp's privacy policy, the data we hold on you, or you would like to exercise any of your data protection rights, please do not hesitate to contact us at etaosin@gmail.com.
