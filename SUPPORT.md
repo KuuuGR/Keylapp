@@ -1,33 +1,23 @@
 # Support for Keylapp
 
-Welcome to the support page for Keylapp! We're here to help you get the most out of your experience with our customizable keyboard layout app. Below you'll find various resources to assist you with any issues, provide feedback, or get your questions answered.
+Welcome to the Keylapp support page. We're here to help you with any questions or issues you may encounter while using our app.
 
-## How to Get Help
+## How to Get Support
+If you need help, have questions about Keylapp, or want to report an issue, please follow these steps:
 
-### User Guide
-For detailed instructions on how to use Keylapp, including step-by-step guides on exploring and comparing keyboard layouts, please refer to the user guide available within the app's help section.
+### Quick Help
+- **FAQs and Troubleshooting:** Before reaching out, please visit our [FAQ](https://github.com/KuuuGR/Keylapp/FAQ.md) to see if your question has already been answered.
 
-### FAQ
-We maintain a list of frequently asked questions that can help you solve common issues and provide quick answers. Check out our FAQ section [here](https://github.com/KuuuGR/Keylapp/wiki/FAQ).
+### Contact Us
+- **Email Support:** If you cannot find the answer to your question or need more personalized assistance, email us at [etaosin@gmail.com](mailto:etaosin@gmail.com). We aim to respond to all queries within 24-48 hours.
 
-## Reporting Issues
-If you encounter any problems while using Keylapp or have suggestions for improvements, please report them through our GitHub Issues page:
-- [Report a bug](https://github.com/KuuuGR/Keylapp/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
-- [Suggest an enhancement](https://github.com/KuuuGR/Keylapp/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)
+### Issue Reporting
+- **GitHub Issues:** For technical issues or bugs, feel free to open an issue directly on our GitHub repository [here](https://github.com/KuuuGR/Keylapp/issues). This helps us track the issue and provide updates on progress towards a resolution.
 
-## Feature Requests
-Have ideas for new features or want to suggest modifications to existing ones? We'd love to hear from you! Please submit your ideas via our feature request form here:
-- [Submit a feature request](https://github.com/KuuuGR/Keylapp/issues/new?assignees=&labels=feature+request&template=feature_request.md&title=)
+## Feedback
+Your feedback is crucial to us. It helps us understand your needs and improve Keylapp. If you have any feedback or suggestions, please feel free to reach out via email. We love hearing from our users!
 
-## Contact Us
-For further assistance or more specific inquiries, you can reach out to us directly via email:
-- 📧 [support@keylapp.com](mailto:support@keylapp.com)
+## Stay Updated
+For the latest updates, new features, and announcements, keep an eye on our [GitHub repository](https://github.com/KuuuGR/Keylapp) and follow us on our social media channels.
 
-## Community Support
-Join the discussion on our [GitHub Discussions](https://github.com/KuuuGR/Keylapp/discussions) page to engage with other community members and contributors. Share tips, ask questions, and connect with fellow users.
-
-## Additional Resources
-- [Contributing to Keylapp](https://github.com/KuuuGR/Keylapp/CONTRIBUTING.md)
-- [Changelog](https://github.com/KuuuGR/Keylapp/releases)
-
-Thank you for using Keylapp, and we hope you find these resources helpful!
+Thank you for using Keylapp!
