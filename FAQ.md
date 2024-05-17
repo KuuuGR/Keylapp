@@ -27,7 +27,7 @@ If Keylapp crashes, try restarting the app. If the problem persists, please unin
 Keylapp does not currently require users to create accounts, so no password is needed to access the app's features.
 
 ### Is my personal information safe with Keylapp?
-Yes, we take your privacy seriously. Keylapp does not collect personal information beyond necessary operational data, which is securely stored and managed. For more details, please refer to our [Privacy Policy](https://github.com/KuuuGR/Keylapp/PRIVACY.md).
+Yes, we take your privacy seriously. Keylapp does not collect personal information beyond necessary operational data, which is securely stored and managed. For more details, please refer to our [Privacy Policy](https://github.com/KuuuGR/Keylapp/blob/main/PrivacyPolicy.md).
 
 ## Additional Support
 
