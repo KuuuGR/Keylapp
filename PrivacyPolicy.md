@@ -1,6 +1,6 @@
 # Privacy Policy for Keylapp
 
-Effective date: [2024.05.18]
+Effective date: 2024.05.18
 
 ## Overview
 
