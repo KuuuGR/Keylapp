@@ -32,23 +32,6 @@ struct Ray: Identifiable {
     }
 }
 
-struct RayEntry {
-    let rayCase: RayCase
-    let value: Double
-    
-    static func degreesToRadians(_ degrees: Double) -> CGFloat {
-        return CGFloat(degrees * .pi / 180)
-    }
-    
-    static func angleFromFraction(numerator: Int, denominator: Int) -> Double {
-        return Double(numerator) * 360.0 / Double(denominator)
-    }
-    
-    static func radAngleFromFraction(numerator: Int, denominator: Int) -> CGFloat {
-        return degreesToRadians(angleFromFraction(numerator: numerator, denominator: denominator))
-    }
-}
-
 struct DataPoint: Identifiable {
     let id = UUID()
     let entries: [RayEntry]
@@ -60,4 +43,10 @@ struct DataPoint: Identifiable {
         self.color = color
         self.label = label
     }
+}
+
+// Simplified RayEntry without unused functions
+struct RayEntry {
+    let rayCase: RayCase
+    let value: Double
 }
