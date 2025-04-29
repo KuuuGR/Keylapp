@@ -33,6 +33,7 @@
 		076EF6F12BF2B9D3003C62B0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076EF6F02BF2B9D3003C62B0 /* UIViewController.swift */; };
 		076EF6F32BF2BBB1003C62B0 /* OrientationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */; };
 		07B845572BF55F4E0097A74C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B845562BF55F4E0097A74C /* SoundManager.swift */; };
+		8483576E2DC16A79009E604E /* KeyboardStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 8483576D2DC16A72009E604E /* KeyboardStats.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,10 +83,12 @@
 		076EF6F02BF2B9D3003C62B0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		076EF6F22BF2BBB1003C62B0 /* OrientationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationViewController.swift; sourceTree = "<group>"; };
 		07B845562BF55F4E0097A74C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		8483576D2DC16A72009E604E /* KeyboardStats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KeyboardStats.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		848357632DC15C33009E604E /* RadarChart */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RadarChart; sourceTree = "<group>"; };
+		848357712DC16AC7009E604E /* RadarChartData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RadarChartData; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 		075D542F2BF27B4900386B86 /* Keylapp */ = {
 			isa = PBXGroup;
 			children = (
+				8483576D2DC16A72009E604E /* KeyboardStats.json */,
 				075D54652BF28FA800386B86 /* AppEntry */,
 				075D54642BF28F7500386B86 /* View Files */,
 				075D54622BF28F2400386B86 /* Model Files */,
@@ -173,6 +177,7 @@
 		075D54622BF28F2400386B86 /* Model Files */ = {
 			isa = PBXGroup;
 			children = (
+				848357712DC16AC7009E604E /* RadarChartData */,
 				075D54682BF2982F00386B86 /* AppDelegate.swift */,
 				075D545E2BF28EB400386B86 /* KeyboardLayout.swift */,
 				075D546C2BF2A4B800386B86 /* KeyboardLayoutData.swift */,
@@ -230,6 +235,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				848357632DC15C33009E604E /* RadarChart */,
+				848357712DC16AC7009E604E /* RadarChartData */,
 			);
 			name = Keylapp;
 			productName = Keylapp;
@@ -321,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				075D54382BF27B4D00386B86 /* Preview Assets.xcassets in Resources */,
+				8483576E2DC16A79009E604E /* KeyboardStats.json in Resources */,
 				075D54352BF27B4D00386B86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
