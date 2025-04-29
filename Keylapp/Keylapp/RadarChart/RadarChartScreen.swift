@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct RadarChartScreen: View {
-    let layout: KeyboardLayout
-    let comparisonLayout: KeyboardLayout
+    let layout: KeyboardLayoutStats  // Changed from KeyboardLayout
+    let comparisonLayout: KeyboardLayoutStats  // Changed from KeyboardLayout
     
     private var dimensions: [Ray] {
-        RayCase.allCases.map { Ray(maxValue: 10, rayCase: $0) }
+        [
+            Ray(maxValue: 50, rayCase: .alternation),
+            Ray(maxValue: 50, rayCase: .rolling),
+            Ray(maxValue: 50, rayCase: .oneHand),
+            Ray(maxValue: 50, rayCase: .redirect),
+            Ray(maxValue: 50, rayCase: .redundancy),
+            Ray(maxValue: 10, rayCase: .sfb),
+            Ray(maxValue: 10, rayCase: .sfs)
+        ]
     }
     
     private var data: [DataPoint] {
@@ -66,15 +74,15 @@ struct RadarChartScreen: View {
         }
     }
     
-    private func calculateMetrics(for layout: KeyboardLayout) -> [RayCase: Double] {
-        // Replace with your actual calculations
+    private func calculateMetrics(for layout: KeyboardLayoutStats) -> [RayCase: Double] {
         return [
-            .efficiency: Double.random(in: 5...9),
-            .comfort: Double.random(in: 5...9),
-            .speed: Double.random(in: 5...9),
-            .memorability: Double.random(in: 5...9),
-            .ergonomics: Double.random(in: 5...9),
-            .customizability: Double.random(in: 5...9)
+            .alternation: layout.stats.alt,
+            .rolling: layout.stats.roll,
+            .oneHand: layout.stats.one,
+            .redirect: layout.stats.rtl,
+            .redundancy: layout.stats.red,
+            .sfb: layout.stats.sfb,
+            .sfs: layout.stats.sfs
         ]
     }
 }

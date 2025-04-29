@@ -1,3 +1,4 @@
+// KeyboardStatsView.swift
 import SwiftUI
 
 struct KeyboardStatsView: View {
@@ -25,7 +26,7 @@ struct KeyboardStatsView: View {
             
             // Main content
             HStack(alignment: .top, spacing: 20) {
-                // Radar Chart - now with all required parameters
+                // Radar Chart
                 VStack {
                     Text("Performance Metrics")
                         .font(.headline)
@@ -35,22 +36,22 @@ struct KeyboardStatsView: View {
                         width: chartWidth,
                         quantityOfDividers: dividersCount,
                         dimensions: [
-                            Ray(maxValue: 50, rayCase: .alt),
-                            Ray(maxValue: 50, rayCase: .roll),
-                            Ray(maxValue: 50, rayCase: .one),
-                            Ray(maxValue: 50, rayCase: .rtl),
-                            Ray(maxValue: 50, rayCase: .red),
+                            Ray(maxValue: 50, rayCase: .alternation),
+                            Ray(maxValue: 50, rayCase: .rolling),
+                            Ray(maxValue: 50, rayCase: .oneHand),
+                            Ray(maxValue: 50, rayCase: .redirect),
+                            Ray(maxValue: 50, rayCase: .redundancy),
                             Ray(maxValue: 10, rayCase: .sfb),
                             Ray(maxValue: 10, rayCase: .sfs)
                         ],
                         data: [
                             DataPoint(
                                 values: [
-                                    .alt: layout.stats.alt,
-                                    .roll: layout.stats.roll,
-                                    .one: layout.stats.one,
-                                    .rtl: layout.stats.rtl,
-                                    .red: layout.stats.red,
+                                    .alternation: layout.stats.alt,
+                                    .rolling: layout.stats.roll,
+                                    .oneHand: layout.stats.one,
+                                    .redirect: layout.stats.rtl,
+                                    .redundancy: layout.stats.red,
                                     .sfb: layout.stats.sfb,
                                     .sfs: layout.stats.sfs
                                 ],
@@ -62,7 +63,7 @@ struct KeyboardStatsView: View {
                     .frame(width: chartWidth, height: chartWidth)
                 }
                 
-                // Right side - LH/RH balance and layout (unchanged)
+                // Right side - LH/RH balance and layout
                 VStack(spacing: 20) {
                     VStack {
                         Text("Hand Balance")

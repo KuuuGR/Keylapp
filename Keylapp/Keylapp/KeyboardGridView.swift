@@ -13,6 +13,8 @@ struct KeyboardGridView: View {
     @State private var isSoundEnabled = false  // State variable to track sound playback
     @State private var showLayoutInfo = false  // State to control the display of the layout info view
     @State private var showRadarChart = false
+    let layoutStats = KeyboardLayoutStats.loadSampleData().first!
+    let comparisonStats = KeyboardLayoutStats.loadSampleData().last!
 
     private var keys: [[String]] {
         [layout.firstRow, layout.secondRow, layout.thirdRow, layout.fourthRow].map { row in
@@ -97,8 +99,8 @@ struct KeyboardGridView: View {
             }
             .sheet(isPresented: $showRadarChart) {
                 RadarChartScreen(
-                    layout: layout,
-                    comparisonLayout: LayoutDataManager.shared.layouts[selectedComparisonLayoutIndex]
+                    layout: layoutStats,
+                    comparisonLayout: comparisonStats
                 )
             }
         }

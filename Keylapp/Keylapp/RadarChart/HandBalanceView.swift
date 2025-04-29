@@ -4,6 +4,7 @@
 //
 //  Created by admin on 29/04/2025.
 //
+// HandBalanceView.swift
 import SwiftUI
 
 struct HandBalanceView: View {
@@ -55,14 +56,4 @@ struct KeyboardVisualizationView: View {
             }
         }
     }
-}
-
-extension RayCase {
-    static let alt = RayCase(rawValue: "Alternation")!
-    static let roll = RayCase(rawValue: "Rolling")!
-    static let one = RayCase(rawValue: "One-Hand")!
-    static let rtl = RayCase(rawValue: "Redirect")!
-    static let red = RayCase(rawValue: "Redundancy")!
-    static let sfb = RayCase(rawValue: "SFB")!
-    static let sfs = RayCase(rawValue: "SFS")!
 }

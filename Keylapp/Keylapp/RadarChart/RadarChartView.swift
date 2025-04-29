@@ -28,7 +28,7 @@ struct RadarChartView: View {
     }
     
     private var labelRotationOffset: Angle {
-        .degrees(25) // 15° clockwise rotation
+        .degrees(25)
     }
 
     var body: some View {
@@ -103,7 +103,7 @@ struct RadarChartView: View {
     
     private func angleForDimension(at index: Int) -> CGFloat {
         let angleStep = 2 * .pi / CGFloat(dimensions.count)
-        return angleStep * CGFloat(index) - .pi/2 // Start from top
+        return angleStep * CGFloat(index) - .pi/2
     }
     
     private func pointOnCircle(radius: CGFloat, angle: CGFloat) -> CGPoint {
@@ -121,8 +121,6 @@ struct RadarChartView: View {
         return .radians(shouldFlip ? labelAngle + .pi : labelAngle)
     }
 }
-
-// PolygonShape implementation remains the same
 
 struct PolygonShape: Shape {
     let sides: Int
