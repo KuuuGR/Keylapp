@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-enum RayCase: String, CaseIterable {
+enum RayCase: String, CaseIterable, Identifiable {
     case efficiency = "Efficiency"
     case comfort = "Comfort"
     case speed = "Speed"
     case memorability = "Memorability"
     case ergonomics = "Ergonomics"
     case customizability = "Customizability"
+    
+    var id: String { self.rawValue }
 }
 
 struct Ray: Identifiable {
@@ -52,17 +54,8 @@ struct DataPoint: Identifiable {
     let color: Color
     let label: String
     
-    init(efficiency: Double, comfort: Double, speed: Double,
-         memorability: Double, ergonomics: Double, customizability: Double,
-         color: Color, label: String) {
-        self.entries = [
-            RayEntry(rayCase: .efficiency, value: efficiency),
-            RayEntry(rayCase: .comfort, value: comfort),
-            RayEntry(rayCase: .speed, value: speed),
-            RayEntry(rayCase: .memorability, value: memorability),
-            RayEntry(rayCase: .ergonomics, value: ergonomics),
-            RayEntry(rayCase: .customizability, value: customizability)
-        ]
+    init(values: [RayCase: Double], color: Color, label: String) {
+        self.entries = RayCase.allCases.map { RayEntry(rayCase: $0, value: values[$0] ?? 0) }
         self.color = color
         self.label = label
     }
