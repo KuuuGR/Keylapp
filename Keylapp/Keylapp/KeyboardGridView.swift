@@ -12,6 +12,7 @@ struct KeyboardGridView: View {
     @State private var showComparison = false
     @State private var isSoundEnabled = false  // State variable to track sound playback
     @State private var showLayoutInfo = false  // State to control the display of the layout info view
+    @State private var showRadarChart = false
 
     private var keys: [[String]] {
         [layout.firstRow, layout.secondRow, layout.thirdRow, layout.fourthRow].map { row in
@@ -53,6 +54,9 @@ struct KeyboardGridView: View {
                                     showLayoutInfo = true  // Toggle to show the layout info view
                                 } else if isSoundEnabled {
                                     SoundManager.shared.playSound(for: keyChar)  // Play sound only if enabled
+                                } else if index == 3 && colIndex == 2 {
+                                    showRadarChart = true
+                                    //showLayoutInfo = true
                                 }
                                 if index == 3 && colIndex == 0 {
                                     showComparison.toggle()
@@ -91,24 +95,29 @@ struct KeyboardGridView: View {
             .sheet(isPresented: $showLayoutInfo) {
                 LayoutInfoView()  // Present the layout info view
             }
-
+            .sheet(isPresented: $showRadarChart) {
+                RadarChartScreen(
+                    layout: layout,
+                    comparisonLayout: LayoutDataManager.shared.layouts[selectedComparisonLayoutIndex]
+                )
+            }
         }
     }
 }
 
-struct KeyboardGridView_Previews: PreviewProvider {
-    static var previews: some View {
-        KeyboardGridView(
-            layout: KeyboardLayout(
-                id: "001",
-                name: "QWERTY",
-                firstRow: "qwfpbjluy;",
-                secondRow: "arstgmneio",
-                thirdRow: "zxcdvkh,./",
-                fourthRow: "          ",
-                keyColors: ["q_0": .red, "a_0": .blue, "z_0": .black, "x_1": .black, "c_2": .black, "m_7": .black, "/_9": .black]
-            ),
-            selectedComparisonLayoutIndex: .constant(0)  // Provide a constant for the preview
-        )
-    }
-}
+//struct KeyboardGridView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        KeyboardGridView(
+//            layout: KeyboardLayout(
+//                id: "001",
+//                name: "QWERTY",
+//                firstRow: "qwfpbjluy;",
+//                secondRow: "arstgmneio",
+//                thirdRow: "zxcdvkh,./",
+//                fourthRow: "          ",
+//                keyColors: ["q_0": .red, "a_0": .blue, "z_0": .black, "x_1": .black, "c_2": .black, "m_7": .black, "/_9": .black]
+//            ),
+//            selectedComparisonLayoutIndex: .constant(0)  // Provide a constant for the preview
+//        )
+//    }
+//}
