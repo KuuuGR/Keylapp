@@ -15,7 +15,10 @@ struct RadarChartView: View {
     let dimensions: [Ray]
     let data: [DataPoint]
     
-    private let labelOffset: CGFloat = 30
+    private let labelOffset: CGFloat = 10  // Increase to move labels further out
+//    private let labelWidth: CGFloat = 10  // Adjust text container width
+//    private let labelHeight: CGFloat = 70 // Adjust text container height
+
     private let labelRotationOffset: Angle = .degrees(90)
     
     private var center: CGPoint {
@@ -23,7 +26,7 @@ struct RadarChartView: View {
     }
     
     private var radius: CGFloat {
-        width/2 - 40
+        width/2 - 60
     }
     
     var body: some View {
@@ -84,6 +87,7 @@ struct RadarChartView: View {
             }
         }
         .frame(width: width, height: width)
+        //.frame(width: labelWidth, height: labelHeight, alignment: .top)
     }
     
     private func angleForDimension(at index: Int) -> CGFloat {
