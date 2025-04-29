@@ -1,4 +1,5 @@
 // KeyboardStatsView.swift
+
 import SwiftUI
 
 struct KeyboardStatsView: View {
@@ -68,9 +69,14 @@ struct KeyboardStatsView: View {
                     VStack {
                         Text("Hand Balance")
                             .font(.headline)
-                        HandBalanceView(lhPercent: layout.stats.lh, rhPercent: layout.stats.rh)
-                            .frame(height: 30)
-                            .padding(.horizontal)
+                        HandBalanceView(
+                            title: layout.name,
+                            lhPercent: layout.stats.lh,
+                            rhPercent: layout.stats.rh,
+                            color: mainChartColor // Using the same blue as the radar chart
+                        )
+                        .frame(height: 30)
+                        .padding(.horizontal)
                     }
                     
                     VStack {

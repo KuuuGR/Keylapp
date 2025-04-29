@@ -7,23 +7,23 @@
 
 import Foundation
 
-struct KeyboardLayoutStats: Codable, Identifiable {
+struct KeyboardLayoutStats: Codable, Identifiable, Hashable {
     let id = UUID()
     let name: String
     let likes: Int
     let stats: KeyboardStat
     let layout: [[String]]
     
-    struct KeyboardStat: Codable {
-        let alt: Double  // alternation
-        let roll: Double // rolling
-        let one: Double  // one-hand
-        let rtl: Double  // redirect
-        let red: Double  // redundancy
-        let sfb: Double  // SFB
-        let sfs: Double  // SFS
-        let lh: Double   // left hand
-        let rh: Double   // right hand
+    struct KeyboardStat: Codable, Hashable {
+        let alt: Double
+        let roll: Double
+        let one: Double
+        let rtl: Double
+        let red: Double
+        let sfb: Double
+        let sfs: Double
+        let lh: Double
+        let rh: Double
     }
     
     enum CodingKeys: CodingKey {
