@@ -145,7 +145,7 @@ struct LayoutComparisonView: View {
             .padding(.top, 20)
         }
         .padding()
-        .navigationTitle("Keyboard Layout Comparison")
+        //.navigationTitle("Keyboard Layout Comparison")
     }
     
     private func createDataPoint(for layout: KeyboardLayoutStats, color: Color) -> DataPoint {
