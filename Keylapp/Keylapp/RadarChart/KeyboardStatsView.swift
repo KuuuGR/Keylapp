@@ -87,6 +87,7 @@ struct KeyboardStatsView: View {
                                         color: mainChartColor
                                     )
                                     .frame(height: 40)
+                                    //.padding(.top, 15)
                                 }
                                 
                                 VStack {
@@ -130,6 +131,7 @@ struct KeyboardStatsView: View {
                                     color: mainChartColor
                                 )
                                 .frame(height: 30)
+                                //.padding(.top, 15)
                             }
                             
                             // Keyboard visualization

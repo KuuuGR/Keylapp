@@ -87,6 +87,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		0774FBA62DC1FE68003E4603 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		848357632DC15C33009E604E /* RadarChart */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RadarChart; sourceTree = "<group>"; };
 		848357712DC16AC7009E604E /* RadarChartData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RadarChartData; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -192,6 +193,7 @@
 		075D54642BF28F7500386B86 /* View Files */ = {
 			isa = PBXGroup;
 			children = (
+				0774FBA62DC1FE68003E4603 /* Extensions */,
 				848357632DC15C33009E604E /* RadarChart */,
 				075D54322BF27B4900386B86 /* ContentView.swift */,
 				0708F2352BF62C0400A508E8 /* HelpView.swift */,
@@ -234,6 +236,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				0774FBA62DC1FE68003E4603 /* Extensions */,
 				848357632DC15C33009E604E /* RadarChart */,
 				848357712DC16AC7009E604E /* RadarChartData */,
 			);

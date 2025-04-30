@@ -47,70 +47,67 @@ struct LayoutComparisonView: View {
     }
     
     var body: some View {
-        HStack(alignment: .top, spacing: 20) {
-            // Radar Chart Area
-            VStack {
-                if !chartData.isEmpty {
-                    RadarChartView(
-                        mainColor: .primary,
-                        subtleColor: .gray,
-                        width: 350,
-                        quantityOfDividers: 4,
-                        dimensions: dimensions,
-                        data: chartData
-                    )
-                    .frame(width: 350, height: 350)
-                    
-                    // Legend at bottom of chart
-                    HStack(spacing: 20) {
-                        ForEach(chartData) { point in
-                            HStack(spacing: 8) {
-                                Circle()
-                                    .fill(point.color)
-                                    .frame(width: 12, height: 12)
-                                Text(point.label)
-                                    .font(.subheadline)
-                            }
+        GeometryReader { geometry in
+            HStack(alignment: .top, spacing: 20) {
+                // Left side - Radar Chart (60% of width)
+                chartSection
+                    .frame(width: geometry.size.width * 0.6)
+                
+                // Right side - Controls (40% of width)
+                controlPanelSection
+                    .frame(width: geometry.size.width * 0.4)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
+        }
+        .background(Color(.systemBackground))
+        .edgesIgnoringSafeArea(.all)
+    }
+    
+    private var chartSection: some View {
+        VStack {
+            if !chartData.isEmpty {
+                RadarChartView(
+                    mainColor: .primary,
+                    subtleColor: .gray,
+                    width: 350,
+                    quantityOfDividers: 4,
+                    dimensions: dimensions,
+                    data: chartData
+                )
+                .frame(height: 350)
+                
+                // Legend
+                HStack(spacing: 20) {
+                    ForEach(chartData) { point in
+                        HStack(spacing: 8) {
+                            Circle()
+                                .fill(point.color)
+                                .frame(width: 12, height: 12)
+                            Text(point.label)
+                                .font(.subheadline)
                         }
                     }
-                    .padding(.top, 10)
-                } else {
-                    Text("Select layouts to compare")
-                        .frame(width: 350, height: 350)
-                        .foregroundColor(.secondary)
                 }
+                .padding(.top, 10)
+            } else {
+                Text("Select layouts to compare")
+                    .frame(width: 350, height: 350)
+                    .foregroundColor(.secondary)
             }
-            
-            // Control Panel
+        }
+    }
+    
+    private var controlPanelSection: some View {
+        ScrollView {
             VStack(alignment: .leading, spacing: 30) {
                 // Layout Selection
                 VStack(alignment: .leading, spacing: 15) {
                     Text("Compare Layouts")
                         .font(.headline)
                     
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Primary Layout:")
-                        Picker("Select Layout 1", selection: $selectedLayout1) {
-                            Text("None").tag(nil as KeyboardLayoutStats?)
-                            ForEach(allLayouts, id: \.self) { layout in
-                                Text(layout.name).tag(layout as KeyboardLayoutStats?)
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                        .frame(width: 200)
-                    }
-                    
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Comparison Layout:")
-                        Picker("Select Layout 2", selection: $selectedLayout2) {
-                            Text("None").tag(nil as KeyboardLayoutStats?)
-                            ForEach(allLayouts, id: \.self) { layout in
-                                Text(layout.name).tag(layout as KeyboardLayoutStats?)
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                        .frame(width: 200)
-                    }
+                    layoutPicker(label: "Primary Layout:", selection: $selectedLayout1)
+                    layoutPicker(label: "Comparison Layout:", selection: $selectedLayout2)
                 }
                 
                 // Hand Balance Visualization
@@ -138,14 +135,22 @@ struct LayoutComparisonView: View {
                         }
                     }
                 }
-                
-                Spacer()
             }
-            .frame(width: 250)
-            .padding(.top, 20)
+            .padding(.trailing, 60)
         }
-        .padding()
-        //.navigationTitle("Keyboard Layout Comparison")
+    }
+    
+    private func layoutPicker(label: String, selection: Binding<KeyboardLayoutStats?>) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(label)
+            Picker(label, selection: selection) {
+                Text("None").tag(nil as KeyboardLayoutStats?)
+                ForEach(allLayouts, id: \.self) { layout in
+                    Text(layout.name).tag(layout as KeyboardLayoutStats?)
+                }
+            }
+            .pickerStyle(MenuPickerStyle())
+        }
     }
     
     private func createDataPoint(for layout: KeyboardLayoutStats, color: Color) -> DataPoint {

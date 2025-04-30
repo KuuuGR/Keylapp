@@ -55,12 +55,11 @@ struct KeyboardGridView: View {
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
             .sheet(isPresented: $showRadarChart) {
-                NavigationView {
-                    LayoutComparisonView(
-                        initialLayout1: selectedChartLayout1,
-                        initialLayout2: selectedChartLayout2
-                    )
-                }
+                LayoutComparisonView(
+                    initialLayout1: selectedChartLayout1,
+                    initialLayout2: selectedChartLayout2
+                )
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
     }
