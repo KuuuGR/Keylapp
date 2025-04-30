@@ -27,7 +27,7 @@ class LayoutDataManager {
             let firstRow = lines[1].padding(toLength: 10, withPad: " ", startingAt: 0)
             let secondRow = lines[2].padding(toLength: 10, withPad: " ", startingAt: 0)
             let thirdRow = lines[3].padding(toLength: 10, withPad: " ", startingAt: 0)
-            let fourthRow: String = "⧉ 🕸️    ♬ 𝕚" //GQFIXME: this is where fourth row can be configured https://www.compart.com/en/unicode/U+1F0DF //"⅀⌨𝕚🎲⋪⧂⨾⧉  🃟༺🎮ⓘ🃟"
+            let fourthRow: String = "⧉ 🕸️    ♬ 𝕚" //GQFIXME: this is where fourth row can be configured https://www.compart.com/en/unicode/U+1F0DF //"⅀⌨𝕚🎲⋪⧂⨾⧉  🃟༺🎮ⓘ🃟𖦹"
 
             // Get the fourth character and the fourth-from-end character from the second row
             let startIdx = secondRow.index(secondRow.startIndex, offsetBy: 3)

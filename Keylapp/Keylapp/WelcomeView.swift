@@ -46,7 +46,7 @@ struct WelcomeView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(width: 200, height: 40)
-                        .background(Color.logoJeans)
+                        .background(Color.logoOrange)
                         .cornerRadius(10)
                 }
                 
@@ -59,7 +59,20 @@ struct WelcomeView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(width: 60, height: 40)
-                        .background(Color.logoOrange)
+                        .background(Color.logoJeans)
+                        .cornerRadius(10)
+                }
+                
+                Button(action: {
+                    activeSheet = .support
+                }) {
+                    Text("☕︎")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 60, height: 40)
+                        .background(Color.logoJeans)
                         .cornerRadius(10)
                 }
             }
@@ -83,6 +96,8 @@ struct WelcomeView: View {
             switch item {
             case .help:
                 HelpView()
+            case .support:
+                SupportDeveloperView()
             }
         }
     }
@@ -98,8 +113,8 @@ extension Bundle {
     }
 }
 
-struct WelcomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        WelcomeView().environmentObject(ViewRouter())
-    }
-}
+//struct WelcomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WelcomeView().environmentObject(ViewRouter())
+//    }
+//}

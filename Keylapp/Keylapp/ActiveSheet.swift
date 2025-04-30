@@ -7,12 +7,12 @@
 
 enum ActiveSheet: Identifiable {
     case help
-    // Add other cases as needed
+    case support  // new case
 
     var id: Int {
         switch self {
-        case .help:
-            return 1
+        case .help: return 1
+        case .support: return 2
         }
     }
 }
