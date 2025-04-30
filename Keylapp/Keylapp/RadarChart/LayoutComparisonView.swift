@@ -100,19 +100,24 @@ struct LayoutComparisonView: View {
     
     private var controlPanelSection: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 30) {
+            VStack(alignment: .leading, spacing: 20) {
                 // Layout Selection
-                VStack(alignment: .leading, spacing: 15) {
-                    Text("Compare Layouts")
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("Keylapp")
+                        .foregroundColor(.yellow)
                         .font(.headline)
-                    
-                    layoutPicker(label: "Primary Layout:", selection: $selectedLayout1)
-                    layoutPicker(label: "Comparison Layout:", selection: $selectedLayout2)
+                    +
+                    Text(": Layout Comparison")
+                        .foregroundColor(.primary)
+                        .font(.headline)
+
+                    layoutPicker(label: "🔵 Primary Layout:", selection: $selectedLayout1)
+                    layoutPicker(label: "🟢 Comparison Layout:", selection: $selectedLayout2) //⁸.☘︎ ݁˖༝༚.☘︎ ݁˖𖦹꩜୭
                 }
                 
                 // Hand Balance Visualization
                 if selectedLayout1 != nil || selectedLayout2 != nil {
-                    VStack(alignment: .leading, spacing: 15) {
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("Hand Balance")
                             .font(.headline)
                         

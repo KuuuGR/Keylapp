@@ -87,7 +87,6 @@ struct KeyboardStatsView: View {
                                         color: mainChartColor
                                     )
                                     .frame(height: 40)
-                                    //.padding(.top, 15)
                                 }
                                 
                                 VStack {
