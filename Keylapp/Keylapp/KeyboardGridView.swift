@@ -9,6 +9,7 @@ import SwiftUI
 struct KeyboardGridView: View {
     var layout: KeyboardLayout
     @Binding var selectedComparisonLayoutIndex: Int
+
     @State private var showComparison = false
     @State private var isSoundEnabled = false
     @State private var showLayoutInfo = false
@@ -27,6 +28,20 @@ struct KeyboardGridView: View {
         }
     }
 
+    private var comparisonKeys: [String: String] {
+        let comparisonLayout = LayoutDataManager.shared.layouts[selectedComparisonLayoutIndex]
+        let qwertyLayout = comparisonLayout.firstRow + comparisonLayout.secondRow + comparisonLayout.thirdRow
+        let currentLayout = layout.firstRow + layout.secondRow + layout.thirdRow
+
+        var comparison = [String: String]()
+        for (index, char) in currentLayout.enumerated() {
+            let qwertyChar = qwertyLayout[qwertyLayout.index(qwertyLayout.startIndex, offsetBy: index)]
+            comparison[String(char)] = "\(char)/\(qwertyChar)"
+        }
+
+        return comparison
+    }
+
     var body: some View {
         GeometryReader { geometry in
             let buttonSize = min(geometry.size.width / 13, geometry.size.height / 4)
@@ -38,22 +53,39 @@ struct KeyboardGridView: View {
                             let keyParts = key.split(separator: "_")
                             let keyChar = String(keyParts[0])
                             let keyColor = layout.keyColors[key] ?? .gray
+                            let displayChar = comparisonKeys[keyChar] ?? keyChar
 
                             Button(action: {
                                 handleKeyPress(index: index, colIndex: colIndex, rowCount: row.count, keyChar: keyChar)
                             }) {
-                                Text(keyChar)
-                                    .font(.system(size: buttonSize / 2, weight: .bold))
-                                    .foregroundColor(.white)
-                                    .frame(width: buttonSize, height: buttonSize)
-                                    .background(keyColor)
-                                    .cornerRadius(5)
+
+                                VStack {
+                                    if showComparison {
+                                        Text(keyChar)
+                                            .font(.system(size: buttonSize / 2, weight: .bold))
+                                            .foregroundColor(.white)
+
+                                        Text(displayChar.split(separator: "/").last ?? "")
+                                            .font(.system(size: buttonSize / 4))
+                                            .foregroundColor(Color.logoJeans)
+                                    } else {
+                                        Text(keyChar)
+                                            .font(.system(size: buttonSize / 2, weight: .bold))
+                                            .foregroundColor(.white)
+                                    }
+                                }
+                                .frame(width: buttonSize, height: buttonSize)
+                                .background(keyColor)
+                                .cornerRadius(5)
                             }
                         }
                     }
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+            .sheet(isPresented: $showLayoutInfo) {
+                LayoutInfoView()
+            }
             .sheet(isPresented: $showRadarChart) {
                 LayoutComparisonView(
                     initialLayout1: selectedChartLayout1,
@@ -63,15 +95,14 @@ struct KeyboardGridView: View {
             }
         }
     }
-    
+
     private func handleKeyPress(index: Int, colIndex: Int, rowCount: Int, keyChar: String) {
         if index == 3 && colIndex == (rowCount - 3) {
             isSoundEnabled.toggle()
         } else if index == 3 && colIndex == rowCount - 1 {
             showLayoutInfo = true
         } else if index == 3 && colIndex == 2 {
-            // Set current layout as first comparison
-            selectedChartLayout1 = allStats.first(where: { $0.name == layout.name })
+            selectedChartLayout1 = KeyboardLayoutStats.loadSampleData().first(where: { $0.name == layout.name })
             showRadarChart = true
         } else if isSoundEnabled {
             SoundManager.shared.playSound(for: keyChar)
