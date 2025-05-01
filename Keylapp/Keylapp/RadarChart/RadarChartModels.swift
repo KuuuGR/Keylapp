@@ -12,7 +12,7 @@ enum RayCase: String, CaseIterable, Identifiable {
     case rolling = "Rolling"
     case oneHand = "One-Hand"
     case redirect = "Redirect"
-    case redundancy = "Redundancy"
+    case badRedirect = "badRedirect"
     case sfb = "SFB"
     case sfs = "SFS"
     

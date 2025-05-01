@@ -26,7 +26,7 @@ struct LayoutComparisonView: View {
             Ray(maxValue: 50, rayCase: .rolling),
             Ray(maxValue: 50, rayCase: .oneHand),
             Ray(maxValue: 50, rayCase: .redirect),
-            Ray(maxValue: 50, rayCase: .redundancy),
+            Ray(maxValue: 50, rayCase: .badRedirect),
             Ray(maxValue: 10, rayCase: .sfb),
             Ray(maxValue: 10, rayCase: .sfs)
         ]
@@ -165,7 +165,7 @@ struct LayoutComparisonView: View {
                 .rolling: layout.stats.roll,
                 .oneHand: layout.stats.one,
                 .redirect: layout.stats.rtl,
-                .redundancy: layout.stats.red,
+                .badRedirect: layout.stats.red,
                 .sfb: layout.stats.sfb,
                 .sfs: layout.stats.sfs
             ],

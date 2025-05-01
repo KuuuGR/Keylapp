@@ -1,5 +1,25 @@
 [
   {
+    "name": "bhuliktemp (bhulik)",
+    "likes": 1,
+    "stats": {
+      "alt": 33.46,
+      "roll": 42.55,
+      "one": 1.47,
+      "rtl": 44.03,
+      "red": 3.00,
+      "sfb": 1.05,
+      "sfs": 5.08,
+      "lh": 54.41,
+      "rh": 45.59
+    },
+    "layout": [
+      [";", "u", "o", "f", "j", "v", "m", "r", "l", "k"],
+      ["e", "i", "a", "h", "p", "b", "c", "n", "s", "t"],
+      [",", ".", "d", "y", "'", "w", "g", "x", "z", "q"]
+    ]
+  },
+  {
     "name": "Colemak-DH",
     "likes": 19,
     "stats": {
