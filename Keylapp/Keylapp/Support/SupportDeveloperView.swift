@@ -33,19 +33,32 @@ struct SupportDeveloperView: View {
                     Text("Thanks to:")
                         .font(.headline)
                         .padding(.top, 10)
-
+                    
+                    //Text("• Keyboard Layout Discord Community")
+                    /*
+                     https://discord.com/invite/sxTV2G5Acg   //2025.04.30
+                     https://discord.com/invite/keyboard-layouts //2025.04.30
+                    */
+                    
                     Group {
-                        //Text("• Keyboard Layout Discord Community")
-                        /*
-                         https://discord.com/invite/sxTV2G5Acg   //2025.04.30
-                         https://discord.com/invite/keyboard-layouts //2025.04.30
-                        */
+
                         Button(action: {
                             if let url = URL(string: "https://www.google.com/search?q=Alt+Keyboard+Layouts+discord") {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                            Text("• Alt Keyboard Layouts - Discord Community")
+                            Text("• Alt Keyboard Layouts – Discord Community")
+                            //Spacer()
+                            Button(action: {
+                                if let url = URL(string: "https://discord.com/invite/keyboard-layouts") {
+                                    UIApplication.shared.open(url)
+                                }
+                            }) {
+                                Text("Join")
+                                    .foregroundColor(.blue)
+                                    .underline()
+                                    .font(.subheadline)
+                            }
                         }
                         
                         Text("• Open-source layout authors") //
