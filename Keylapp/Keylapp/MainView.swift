@@ -1,7 +1,8 @@
-// MainView.swift
-// Keylapp
 //
-// Created by Grzegorz Kulesza on 13/05/2024.
+//  MainView.swift
+//  Keylapp
+//
+//  Created by Grzegorz Kulesza on 13/05/2024.
 //
 
 import SwiftUI
@@ -10,6 +11,7 @@ struct MainView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var selectedLayoutIndex = 0
     @State private var selectedComparisonLayoutIndex = 0
+
     let layouts = LayoutDataManager.shared.layouts
 
     var body: some View {
@@ -30,7 +32,12 @@ struct MainView: View {
                 if !layouts.isEmpty {
                     KeyboardGridView(
                         layout: layouts[selectedLayoutIndex],
-                        selectedComparisonLayoutIndex: $selectedComparisonLayoutIndex
+                        selectedComparisonLayoutIndex: $selectedComparisonLayoutIndex,
+                        onBack: {
+                            withAnimation {
+                                viewRouter.currentView = .welcome
+                            }
+                        }
                     )
                     .frame(maxHeight: .infinity)
                     .padding(.vertical, 10)
@@ -50,23 +57,7 @@ struct MainView: View {
                 )
                 .padding(.bottom, 5)
             }
-            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-            .gesture(
-                DragGesture(minimumDistance: 50, coordinateSpace: .local)
-                    .onEnded { drag in
-                        if drag.translation.width > 50 { // Detect right swipe
-                            withAnimation {
-                                viewRouter.currentView = .welcome // Navigate back to welcome
-                            }
-                        }
-                    }
-            )
+            .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
 }
-
-//struct MainView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainView().environmentObject(ViewRouter())
-//    }
-//}

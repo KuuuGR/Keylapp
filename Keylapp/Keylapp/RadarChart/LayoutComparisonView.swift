@@ -100,9 +100,9 @@ struct LayoutComparisonView: View {
     
     private var controlPanelSection: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 15) {
                 // Layout Selection
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 15) {
                     Text("Keylapp")
                         .foregroundColor(.yellow)
                         .font(.headline)
