@@ -1,65 +1,5 @@
 [
     {
-        "name": "bhuliktemp (bhulik)",
-        "likes": 1,
-        "stats": {
-            "alt": 33.46,
-            "roll": 42.55,
-            "one": 1.47,
-            "rtl": 44.03,
-            "red": 3.00,
-            "sfb": 1.05,
-            "sfs": 5.08,
-            "lh": 54.41,
-            "rh": 45.59
-        },
-        "layout": [
-            [";", "u", "o", "f", "j", "v", "m", "r", "l", "k"],
-            ["e", "i", "a", "h", "p", "b", "c", "n", "s", "t"],
-            [",", ".", "d", "y", "'", "w", "g", "x", "z", "q"]
-        ]
-    },
-    {
-        "name": "Colemak-DH",
-        "likes": 19,
-        "stats": {
-            "alt": 22.1,
-            "roll": 45.39,
-            "one": 2.6,
-            "rtl": 47.99,
-            "red": 7.32,
-            "sfb": 1.53,
-            "sfs": 8.69,
-            "lh": 44.21,
-            "rh": 55.79
-        },
-        "layout": [
-            ["q", "w", "f", "p", "b", "j", "l", "u", "y", ";"],
-            ["a", "r", "s", "t", "g", "m", "n", "e", "i", "o", "'"],
-            ["z", "x", "c", "d", "v", "k", "h", ",", ".", "/"]
-        ]
-    },
-    {
-        "name": "Workman",
-        "likes": 3,
-        "stats": {
-            "alt": 20.91,
-            "roll": 43.21,
-            "one": 3.1,
-            "rtl": 46.31,
-            "red": 8.23,
-            "sfb": 3.04,
-            "sfs": 8.03,
-            "lh": 48.39,
-            "rh": 51.61
-        },
-        "layout": [
-            ["q", "d", "r", "w", "b", "j", "f", "u", "p", ";"],
-            ["a", "s", "h", "t", "g", "y", "n", "e", "o", "i", "'"],
-            ["z", "x", "m", "c", "v", "k", "l", ",", ".", "/"]
-        ]
-    },
-    {
         "name": "QWERTY",
         "likes": 0,
         "stats": {
@@ -77,26 +17,6 @@
             ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"],
             ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'"],
             ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"]
-        ]
-    },
-    {
-        "name": "Gallium (rinzlerdes)",
-        "likes": 33,
-        "stats": {
-            "alt": 32.64,
-            "roll": 44.65,
-            "one": 2.66,
-            "rtl": 47.31,
-            "red": 2.26,
-            "sfb": 0.79,
-            "sfs": 5.06,
-            "lh": 46.56,
-            "rh": 53.44
-        },
-        "layout": [
-            ["b", "l", "d", "c", "v", "j", "y", "o", "u", ","],
-            ["n", "r", "t", "s", "g", "p", "h", "a", "e", "i", ";"],
-            ["q", "x", "m", "w", "z", "k", "f", "'", "/", "."]
         ]
     },
     {
@@ -280,7 +200,7 @@
         ]
     },
     {
-        "name": "bone (cmini)",
+        "name": "Bone (cmini)",
         "likes": 0,
         "stats": {
             "alt": 28.04,
@@ -320,7 +240,7 @@
         ]
     },
     {
-        "name": "canary (Eve)",
+        "name": "Canary (Eve)",
         "likes": 29,
         "stats": {
             "alt": 23.97,
@@ -340,7 +260,7 @@
         ]
     },
     {
-        "name": "capewell-dvorak (cmini)",
+        "name": "Capewell-Dvorak (cmini)",
         "likes": 0,
         "stats": {
             "alt": 29.65,
@@ -360,7 +280,7 @@
         ]
     },
     {
-        "name": "colemak (cmini)",
+        "name": "Colemak (cmini)",
         "likes": 12,
         "stats": {
             "alt": 22.11,
@@ -380,7 +300,7 @@
         ]
     },
     {
-        "name": "colemak-dh (cmini)",
+        "name": "Colemak-DH (cmini)",
         "likes": 17,
         "stats": {
             "alt": 22.11,
@@ -400,7 +320,7 @@
         ]
     },
     {
-        "name": "colemak-qi (cmini)",
+        "name": "Colemak-Qi (cmini)",
         "likes": 1,
         "stats": {
             "alt": 25.60,
@@ -420,7 +340,7 @@
         ]
     },
     {
-        "name": "colman (cmini)",
+        "name": "Colman (cmini)",
         "likes": 0,
         "stats": {
             "alt": 28.69,
@@ -440,7 +360,7 @@
         ]
     },
     {
-        "name": "compound (oxey)",
+        "name": "compound (Oxey)",
         "likes": 2,
         "stats": {
             "alt": 31.83,
@@ -460,7 +380,7 @@
         ]
     },
     {
-        "name": "crescent (clemenpine)",
+        "name": "crescent (ClemenPine)",
         "likes": 10,
         "stats": {
             "alt": 5.32,
@@ -480,7 +400,7 @@
         ]
     },
     {
-        "name": "crest (oxey)",
+        "name": "Crest (Oxey)",
         "likes": 1,
         "stats": {
             "alt": 26.34,
@@ -1562,17 +1482,17 @@
     },
     {
       "name": "sturdy (Oxey)",
-      "likes": 22,
+      "likes": 23,
       "stats": {
-        "alt": 27.25,
-        "roll": 49.94,
-        "one": 1.86,
-        "rtl": 51.8,
-        "red": 3.08,
-        "sfb": 0.82,
-        "sfs": 6.06,
-        "lh": 43.09,
-        "rh": 56.91
+        "alt": 26.49,
+        "roll": 46.80,
+        "one": 1.90,
+        "rtl": 48.71,
+        "red": 2.85,
+        "sfb": 0.90,
+        "sfs": 5.82,
+        "lh": 44.57,
+        "rh": 55.43
       },
       "layout": [
         ["v", "m", "l", "c", "p", "x", "f", "o", "u", "j"],
