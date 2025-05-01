@@ -35,8 +35,20 @@ struct SupportDeveloperView: View {
                         .padding(.top, 10)
 
                     Group {
-                        Text("• Keyboard Layout Discord Community")
-                        Text("• Open-source layout authors")
+                        //Text("• Keyboard Layout Discord Community")
+                        /*
+                         https://discord.com/invite/sxTV2G5Acg   //2025.04.30
+                         https://discord.com/invite/keyboard-layouts //2025.04.30
+                        */
+                        Button(action: {
+                            if let url = URL(string: "https://www.google.com/search?q=Alt+Keyboard+Layouts+discord") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("• Alt Keyboard Layouts - Discord Community")
+                        }
+                        
+                        Text("• Open-source layout authors") //
                         Text("• All testers and contributors ❤️")
                     }
                     .foregroundColor(.white)
@@ -56,21 +68,21 @@ struct SupportDeveloperView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal)
 
-                    Button(action: {
-                        if let url = URL(string: "https://www.paypal.me/etaosin") {
-                            UIApplication.shared.open(url)
-                        }
-                    }) {
-                        Text("☕ Buy Me a Coffee")
-                            .fontWeight(.bold)
-                            .padding()
-                            .frame(maxWidth: 200)
-                            .background(Color.orange)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                    }
-                    .padding(.horizontal)
+//                    Button(action: {
+//                        if let url = URL(string: "https://www.paypal.me/etaosin") {
+//                            UIApplication.shared.open(url)
+//                        }
+//                    }) {
+//                        Text("☕ Buy Me a Coffee")
+//                            .fontWeight(.bold)
+//                            .padding()
+//                            .frame(maxWidth: 200)
+//                            .background(Color.logoJeans)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(10)
+//                            .shadow(radius: 5)
+//                    }
+//                    .padding(.horizontal)
 
                     Button(action: {
                         if let url = URL(string: "https://www.paypal.me/etaosin") {
@@ -85,6 +97,8 @@ struct SupportDeveloperView: View {
                             .background(.white)
                             .cornerRadius(10)
                             .shadow(radius: 5)
+                            .colorInvert()
+                            .opacity(0.5)
                     }
                     .frame(width: 60, height: 60)
                 }
