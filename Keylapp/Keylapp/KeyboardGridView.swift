@@ -10,8 +10,8 @@ import SwiftUI
 struct KeyboardGridView: View {
     var layout: KeyboardLayout
     @Binding var selectedComparisonLayoutIndex: Int
-    var onBack: (() -> Void)? = nil  // NEW
     
+    var onBack: (() -> Void)? = nil
     @State private var showComparison = false
     @State private var isSoundEnabled = false
     @State private var showLayoutInfo = false
@@ -20,6 +20,7 @@ struct KeyboardGridView: View {
     @State private var selectedChartLayout2: KeyboardLayoutStats?
     
     // Load all stats for comparison
+    @State private var showBackButton = true
     private var allStats: [KeyboardLayoutStats] {
         KeyboardLayoutStats.loadSampleData()
     }
@@ -85,24 +86,26 @@ struct KeyboardGridView: View {
                     }
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                
-                // Custom back button
-                VStack {
-                    Spacer()
-                    Button(action: {
-                        onBack?()  // UPDATED
-                    }) {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 24, weight: .bold))
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.black.opacity(0.6))
-                            .clipShape(Circle())
+
+                if showBackButton {
+                    VStack {
+                        Spacer()
+                        Button(action: {
+                            onBack?()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.black.opacity(0.6))
+                                .clipShape(Circle())
+                        }
+                        Spacer()
                     }
-                    Spacer()
+                    .frame(width: 44)
+                    .padding(.leading)
+                    .transition(.opacity)
                 }
-                .frame(width: 44)
-                .padding(.leading)
             }
             .sheet(isPresented: $showLayoutInfo) {
                 LayoutInfoView()
@@ -114,10 +117,15 @@ struct KeyboardGridView: View {
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+            .onAppear {
+                hideBackButtonWithDelay()
+            }
         }
     }
     
     private func handleKeyPress(index: Int, colIndex: Int, rowCount: Int, keyChar: String) {
+        hideBackButtonWithDelay()
+
         if index == 3 && colIndex == (rowCount - 3) {
             isSoundEnabled.toggle()
         } else if index == 3 && colIndex == rowCount - 1 {
@@ -131,6 +139,17 @@ struct KeyboardGridView: View {
             showComparison.toggle()
         } else {
             print("\(keyChar) tapped")
+        }
+    }
+
+    private func hideBackButtonWithDelay() {
+        withAnimation {
+            showBackButton = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            withAnimation {
+                showBackButton = false
+            }
         }
     }
 }

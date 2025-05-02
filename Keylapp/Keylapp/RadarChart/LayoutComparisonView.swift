@@ -15,6 +15,12 @@ struct LayoutComparisonView: View {
     @State private var selectedLayout1: KeyboardLayoutStats?
     @State private var selectedLayout2: KeyboardLayoutStats?
     
+    @Environment(\.presentationMode) var presentationMode
+
+    // For auto-hiding the back button
+    @State private var showBackButton: Bool = true
+    @State private var hideWorkItem: DispatchWorkItem?
+
     init(initialLayout1: KeyboardLayoutStats? = nil, initialLayout2: KeyboardLayoutStats? = nil) {
         _selectedLayout1 = State(initialValue: initialLayout1)
         _selectedLayout2 = State(initialValue: initialLayout2)
@@ -47,21 +53,52 @@ struct LayoutComparisonView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            HStack(alignment: .top, spacing: 20) {
-                // Left side - Radar Chart (60% of width)
-                chartSection
-                    .frame(width: geometry.size.width * 0.6)
-                
-                // Right side - Controls (40% of width)
-                controlPanelSection
-                    .frame(width: geometry.size.width * 0.4)
+        ZStack(alignment: .leading) {
+            GeometryReader { geometry in
+                HStack(alignment: .top, spacing: 20) {
+                    // Left side - Radar Chart (60% of width)
+                    chartSection
+                        .frame(width: geometry.size.width * 0.6)
+
+                    // Right side - Controls (40% of width)
+                    controlPanelSection
+                        .frame(width: geometry.size.width * 0.4)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
+            .background(Color(.systemBackground))
+            .edgesIgnoringSafeArea(.all)
+
+            // Back arrow button on the far left, vertically centered
+            VStack {
+                Spacer()
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(.primary)
+                        .padding()
+                        .background(Color(.systemBackground).opacity(0.7))
+                        .clipShape(Circle())
+                        .shadow(radius: 2)
+                }
+                .opacity(showBackButton ? 1 : 0)
+                .animation(.easeInOut(duration: 0.5), value: showBackButton)
+                .frame(width: 44)
+                .contentShape(Rectangle()) // keep tap area when hidden
+                Spacer()
+            }
+            .frame(width: 44)
+            .padding(.leading)
         }
-        .background(Color(.systemBackground))
-        .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            resetBackButtonTimer()
+        }
+        .onTapGesture {
+            resetBackButtonTimer()
+        }
     }
     
     private var chartSection: some View {
@@ -173,9 +210,21 @@ struct LayoutComparisonView: View {
             label: layout.name
         )
     }
+
+    // MARK: - Back Button Visibility Logic
+    private func resetBackButtonTimer() {
+        showBackButton = true
+        hideWorkItem?.cancel()
+        let task = DispatchWorkItem {
+            withAnimation {
+                showBackButton = false
+            }
+        }
+        hideWorkItem = task
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: task)
+    }
 }
 
-// Enhanced Hand Balance View
 struct HandBalanceView: View {
     let title: String
     let lhPercent: Double
@@ -197,13 +246,11 @@ struct HandBalanceView: View {
                     HStack(spacing: 0) {
                         Rectangle()
                             .fill(color.opacity(0.6))
-                            .frame(width: geometry.size.width * CGFloat(lhPercent / 100),
-                                   height: 20)
                         
+                            .frame(width: geometry.size.width * CGFloat(lhPercent / 100), height: 20)
                         Rectangle()
                             .fill(color)
-                            .frame(width: geometry.size.width * CGFloat(rhPercent / 100),
-                                   height: 20)
+                            .frame(width: geometry.size.width * CGFloat(rhPercent / 100), height: 20)
                     }
                 }
                 .cornerRadius(4)
