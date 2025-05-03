@@ -15,6 +15,8 @@ struct RadarChartView: View {
     let dimensions: [Ray]
     let data: [DataPoint]
     
+    @State private var selectedRayCase: RayCase?
+    
     private let labelOffset: CGFloat = 10  // Increase to move labels further out
 //    private let labelWidth: CGFloat = 10  // Adjust text container width
 //    private let labelHeight: CGFloat = 70 // Adjust text container height
@@ -51,15 +53,19 @@ struct RadarChartView: View {
                         path.addLine(to: endPoint)
                     }
                     .stroke(mainColor.opacity(0.5), lineWidth: 1)
-        
-                    // Label
-                    Text(dimension.name)
-                        .font(.system(size: 12, weight: .medium))
-                        .rotationEffect(.radians(Double(angle))) // Rotate text to follow axis
-                        .offset(x: (radius + labelOffset) * cos(angle),
-                                y: (radius + labelOffset) * sin(angle))
-                        .fixedSize()
-                        .frame(width: 80, height: 20, alignment: .center)
+
+                    // Label as tappable button
+                    Button(action: {
+                        selectedRayCase = dimension.rayCase
+                    }) {
+                        Text(dimension.name)
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(.primary)
+                            .rotationEffect(.radians(Double(angle)))
+                            .frame(width: 80, height: 20)
+                    }
+                    .offset(x: (radius + labelOffset) * cos(angle),
+                            y: (radius + labelOffset) * sin(angle))
                 }
             }
             
@@ -87,7 +93,9 @@ struct RadarChartView: View {
             }
         }
         .frame(width: width, height: width)
-        //.frame(width: labelWidth, height: labelHeight, alignment: .top)
+        .sheet(item: $selectedRayCase) { ray in
+            RadarAxisDescriptionView(rayCase: ray)
+        }
     }
     
     private func angleForDimension(at index: Int) -> CGFloat {
@@ -99,5 +107,81 @@ struct RadarChartView: View {
             x: center.x + radius * cos(angle),
             y: center.y + radius * sin(angle)
         )
+    }
+}
+
+// View shown in sheet with ray case description
+struct RadarAxisDescriptionView: View {
+    let rayCase: RayCase
+
+    var body: some View {
+        NavigationView {
+            VStack(alignment: .leading, spacing: 16) {
+                Text(rayCase.rawValue)
+                    .font(.title2)
+                    .bold()
+                
+                Text(descriptionText(for: rayCase))
+                    .font(.body)
+                
+                Spacer()
+            }
+            .padding()
+            .navigationTitle("Metric Info")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+
+    private func descriptionText(for ray: RayCase) -> String {
+        switch ray {
+        case .alternation:
+            return """
+            🔄 Alternation (alt): Measures how often typing switches between hands.
+            🎯 Higher is better — promotes rhythm and reduces fatigue.
+            💡 Example: Typing “ad” alternates hands, while “as” uses the same hand.
+            """
+
+        case .rolling:
+            return """
+            🔁 Rolls (rol): Measures flowing finger movements in one direction, like “asd”.
+            🎯 Higher is better — improves comfort and typing speed.
+            💡 Example: “jkl” forms a right-hand inward roll.
+            """
+
+        case .oneHand:
+            return """
+            ✋ One-Hand Usage: Shows how often one hand types multiple keys in a row.
+            🎯 Lower is better — reduces strain by encouraging hand alternation.
+            💡 Example: “fast” on QWERTY is mostly typed with the left hand.
+            """
+
+        case .redirect:
+            return """
+            ↩️ Redirects (rdt): Measures changes in finger or hand direction that break flow.
+            🎯 Lower is better — smoother finger travel means better ergonomics.
+            💡 Example: Typing “lo” then “k” creates a redirect on the right hand.
+            """
+
+        case .badRedirect:
+            return """
+            🚫 Bad Redirects: Especially disruptive direction changes, often with weak fingers.
+            🎯 Lower is much better — these patterns cause inefficiency and discomfort.
+            💡 Example: “plk” requires an awkward right-hand movement.
+            """
+
+        case .sfb:
+            return """
+            🧍 Same-Finger Bigrams (sfb): Measures consecutive keypresses using the same finger.
+            🎯 Lower is better — prevents fatigue and improves speed.
+            💡 Example: “ed” on QWERTY uses the same finger (middle).
+            """
+
+        case .sfs:
+            return """
+            🦘 Same-Finger Skips (sfs): Measures skips over keys with the same finger.
+            🎯 Lower is better — reduces stretch and strain.
+            💡 Example: Typing “e” then “t” with the index finger.
+            """
+        }
     }
 }
