@@ -22,8 +22,8 @@ struct KeyboardLayoutView: View {
     }
 }
 
-struct KeyboardLayoutView_Previews: PreviewProvider {
-    static var previews: some View {
-        KeyboardLayoutView()
-    }
-}
+//struct KeyboardLayoutView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        KeyboardLayoutView()
+//    }
+//}

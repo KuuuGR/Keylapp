@@ -41,8 +41,8 @@ struct LayoutInfoView: View {
     }
 }
 
-struct LayoutInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        LayoutInfoView()
-    }
-}
+//struct LayoutInfoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LayoutInfoView()
+//    }
+//}

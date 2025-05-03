@@ -38,8 +38,8 @@ struct CarouselPicker: View {
     }
 }
 
-struct CarouselPicker_Previews: PreviewProvider {
-    static var previews: some View {
-        CarouselPicker(selectedIndex: .constant(0), items: ["Item 1", "Item 2", "Item 3"], keySize: 40, backgroundColor: .logoJeans, selectedBackgroundColor: .logoRed, textColor: .white)
-    }
-}
+//struct CarouselPicker_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CarouselPicker(selectedIndex: .constant(0), items: ["Item 1", "Item 2", "Item 3"], keySize: 40, backgroundColor: .logoJeans, selectedBackgroundColor: .logoRed, textColor: .white)
+//    }
+//}
