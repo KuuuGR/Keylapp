@@ -10,6 +10,9 @@ Keylapp is a customizable keyboard layout exploration app built using SwiftUI. I
 - **Interactive Learning Tools:** Utilize mnemonics and visual aids to facilitate the learning of new layouts.
 - **Sound Feedback:** Experience auditory feedback with customizable sounds that make the interactive experience even more engaging.
 
+## Changelog
+See [CHANGELOG.md](./Changelog.md) for version history and updates.
+
 ## How to Use Keylapp
 To get started with Keylapp, follow these simple steps:
 1. **Select a Layout:** Browse through the extensive list of available keyboard layouts.
