@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RadarChartScreen: View {
-    let layout: KeyboardLayoutStats  // Changed from KeyboardLayout
-    let comparisonLayout: KeyboardLayoutStats  // Changed from KeyboardLayout
+    let layout: KeyboardLayoutStats
+    let comparisonLayout: KeyboardLayoutStats
     
     private var dimensions: [Ray] {
         [
@@ -27,12 +27,12 @@ struct RadarChartScreen: View {
         [
             DataPoint(
                 values: calculateMetrics(for: layout),
-                color: .blue,
+                color: Color.blue,
                 label: layout.name
             ),
             DataPoint(
                 values: calculateMetrics(for: comparisonLayout),
-                color: .green,
+                color: Color.green,
                 label: comparisonLayout.name
             )
         ]
@@ -48,8 +48,8 @@ struct RadarChartScreen: View {
                     .padding(.top)
                 
                 RadarChartView(
-                    mainColor: .primary,
-                    subtleColor: .gray,
+                    mainColor: Color.primary,
+                    subtleColor: Color.gray,
                     width: min(UIScreen.main.bounds.width - 40, 350),
                     quantityOfDividers: 4,
                     dimensions: dimensions,

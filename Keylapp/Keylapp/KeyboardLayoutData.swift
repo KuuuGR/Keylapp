@@ -624,6 +624,12 @@ let rawLayouts: [String] = [
     qvgdkz*';.
     """,
     """
+    whole (tzplayer)
+    rlfbgq,uoj
+    nwsdtcheai
+    zmvkpxy/;.
+    """,
+    """
     Whorf
     flhdmvwou,
     srntkgyaei
