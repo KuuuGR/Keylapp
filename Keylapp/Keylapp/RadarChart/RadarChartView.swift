@@ -113,6 +113,7 @@ struct RadarChartView: View {
 // View shown in sheet with ray case description
 struct RadarAxisDescriptionView: View {
     let rayCase: RayCase
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationView {
@@ -125,6 +126,21 @@ struct RadarAxisDescriptionView: View {
                     .font(.body)
                 
                 Spacer()
+                
+                // Dismiss arrow button
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color(UIColor.secondarySystemBackground))
+                        .clipShape(Circle())
+                        .shadow(radius: 2)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.bottom, 30)
             }
             .padding()
             .navigationTitle("Metric Info")
