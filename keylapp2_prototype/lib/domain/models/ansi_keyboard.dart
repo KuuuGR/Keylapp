@@ -1,26 +1,26 @@
 import 'physical_keyboard.dart';
 
 /// The stable Staggered physical keyboard (product spec) that layouts map onto.
-/// This is the FULL Staggered keyboard with a clean, right-aligned compact
-/// geometry:
+/// This is the FULL Staggered keyboard with a natural staggered geometry:
 ///
 ///   number row:   Esc 1 2 3 4 5 6 7 8 9 0 ⌫
-///   QWERTY row:       Tab Q W E R T Y U I O P
-///   home row:         Caps A S D F G H J K L ; ↵
-///   bottom row:       Shift Z X C V B N M , . / Shift
-///   space row:        Ctrl ◆ Alt [Space] Alt ☰
+///   QWERTY row:   Tab Q W E R T Y U I O P
+///   home row:     Caps A S D F G H J K L ; ↵
+///   bottom row:   Shift Z X C V B N M , . / Shift
+///   space row:    Ctrl ◆ Alt [Space] Alt ☰
 ///
 /// Design rules:
-///  - The character rows are exactly 3 × 10 (Q..P / A..; / Z../). There is NO
-///    trailing Enter on the QWERTY row (the duplicate must NOT exist); P is the
-///    last key of that row and ends flush with the right edge of the keyboard.
-///  - The home-row Enter (after `;`) is kept. The final key of every character
-///    row (P, Enter, Shift) ends on the same right-edge line (13 columns).
-///  - The QWERTY row is indented to the right so that P reaches that right edge.
-///  - Letter keys are 1×1; only Tab/Caps are 1.5 (Tab stays 1.5), Enter/Shift
-///    are 1.0. No character key is resized.
+///  - The three character rows keep their NATURAL stagger: the QWERTY row sits
+///    to the LEFT of the Home row (Q left of A); the Home row is the reference;
+///    the bottom row sits to the RIGHT (Z right of A). The QWERTY row is NOT
+///    right-aligned to the Home row, so P does not reach the right edge.
+///  - The QWERTY row contains exactly Tab + Q..P (10 letters). There is NO
+///    trailing Enter on the QWERTY row (the duplicate must NOT exist). The
+///    home-row Enter (after `;`) is the only Enter in the character rows.
+///  - Letter keys are 1×1; only Tab/Caps are 1.5, Enter/Shift are 1.0. No
+///    character key is resized.
 ///  - Layout mapping: characters only land on the ten letter keys of each
-///    character row (columns 6–15 / 4–13 / 5–14). Auxiliary/modifier keys never
+///    character row (columns 2–11 / 4–13 / 5–14). Auxiliary/modifier keys never
 ///    consume layout characters.
 class AnsiKeyboardGeometry extends PhysicalKeyboardGeometry {
   AnsiKeyboardGeometry() : super(id: 'ansi-compact', rows: _buildRows());
@@ -37,13 +37,15 @@ class AnsiKeyboardGeometry extends PhysicalKeyboardGeometry {
     r0.add(const PhysicalKey(row: 0, opticalColumn: 13, function: 'backspace', glyph: '⌫', unitWidth: 2.0));
 
     // Row 1: QWERTY row — Tab + Q..P (exactly 10 letters), NO Enter.
-    // Indented (opticalColumn 4) so P ends flush at the right edge.
+    // Natural stagger: the QWERTY row sits to the LEFT of the Home row
+    // (Q lands left of A). Tab is a far-left key. The row is NOT right-aligned,
+    // so P does NOT reach the right edge.
     final r1 = <PhysicalKey>[
-      const PhysicalKey(row: 1, opticalColumn: 4, function: 'tab', glyph: 'Tab', unitWidth: 1.5),
+      const PhysicalKey(row: 1, opticalColumn: 0, function: 'tab', glyph: 'Tab', unitWidth: 1.5),
     ];
     const r1Glyphs = ['Q','W','E','R','T','Y','U','I','O','P'];
     for (var i = 0; i < r1Glyphs.length; i++) {
-      r1.add(PhysicalKey(row: 1, opticalColumn: 6 + i, glyph: r1Glyphs[i]));
+      r1.add(PhysicalKey(row: 1, opticalColumn: 2 + i, glyph: r1Glyphs[i]));
     }
 
     // Row 2: home row — Caps + A..; + Enter (Enter KEPT).
