@@ -8,6 +8,7 @@ import '../../domain/models/comparison_style.dart';
 import '../../domain/models/layout.dart';
 import '../../domain/models/ortholinear_keyboard.dart';
 import '../../domain/models/physical_keyboard.dart';
+import '../../domain/models/staggered_simplified_keyboard.dart';
 import '../widgets/comparison_style_editor.dart';
 import '../widgets/key_content_resolver.dart';
 import '../widgets/keyboard_controls.dart';
@@ -26,10 +27,18 @@ class KeyboardComparisonScreen extends ConsumerWidget {
   /// character-key region (via `.simplified()`); it never relocates or resizes
   /// the character keys, so the stagger (or aligned grid) is preserved.
   PhysicalKeyboardGeometry _geometryFor(ComparisonSession session) {
-    final full = session.keyboard.geometry == PhysicalGeometry.ortholinear
-        ? fullOrthoGeo
-        : fullStaggeredGeo;
-    return session.keyboard.scope == KeyboardScope.simplified ? full.simplified() : full;
+    final isOrtho = session.keyboard.geometry == PhysicalGeometry.ortholinear;
+    final isSimplified = session.keyboard.scope == KeyboardScope.simplified;
+
+    // Staggered + Simplified uses a DEDICATED, independent geometry (exactly 10
+    // keys per row; QWERTY shifted 0.5U right). It is NOT derived from the
+    // frozen Staggered Full geometry, so changes here cannot leak into Full.
+    if (!isOrtho && isSimplified) return StaggeredSimplifiedKeyboardGeometry();
+
+    // All other combinations use the frozen source geometries unchanged
+    // (Ortholinear/Staggered Full, and their existing simplified() crops).
+    final full = isOrtho ? fullOrthoGeo : fullStaggeredGeo;
+    return isSimplified ? full.simplified() : full;
   }
   static final fullStaggeredGeo = AnsiKeyboardGeometry();
   static final fullOrthoGeo = OrtholinearKeyboardGeometry();
