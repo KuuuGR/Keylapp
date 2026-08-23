@@ -7,22 +7,22 @@ import 'physical_keyboard.dart';
 /// Key structure (key set & trailing widths) follows the full ANSI design:
 ///
 ///   number row:   Esc 1 2 3 4 5 6 7 8 9 0 - = ⌫
-///   QWERTY row:       Tab Q W E R T Y U I O P [ ] \
-///   home row:         Caps A S D F G H J K L ; ' ↵
-///   bottom row:       Shift Z X C V B N M , . / Shift
-///   space row:        Ctrl ◆ Alt [Space] Alt ☰ Ctrl
+///   QWERTY row:     Tab Q W E R T Y U I O P [ ] \
+///   home row:       Caps A S D F G H J K L ; ' ↵
+///   bottom row:     Shift Z X C V B N M , . / Shift
+///   space row:      Ctrl ◆ Alt [Space] Alt ☰ Ctrl
 ///
 /// Design rules:
-///  - The QWERTY row is indented one key-width (2 optical columns) to the
-///    right, and its trailing Enter was REMOVED — the row is now
+///  - The QWERTY row is shifted 0.5U (one optical column) LEFT of its prior
+///    position, and its trailing Enter was REMOVED — the row is now
 ///    `Tab + Q..P [ ] \` with no ↵. All key sizes/spacing are unchanged.
-///  - The home and bottom rows keep their original positions:
-///      * QWERTY row: Tab at col 2, Q at col 4 … `\` at col 16.
+///  - The home and bottom rows keep their positions unchanged:
+///      * QWERTY row: Tab at col 1, Q at col 3 … `\` at col 15.
 ///      * Home row:   Caps at col 1, A at col 3 … `'` at col 13, then Enter.
 ///      * Bottom row: left Shift at col 2, Z at col 4 … `/` at col 13, then
 ///        right Shift.
-///    As a result A (home) sits to the LEFT of Q (QWERTY), and Z (bottom)
-///    sits directly under A.
+///    As a result Q (QWERTY) aligns with A (home), and Z (bottom) sits
+///    0.5U to the right.
 ///  - Leading modifiers Tab, Caps, left Shift are all 1.5U. Trailing keys
 ///    keep their ANSI widths.
 ///  - Layout mapping: layout characters land on the non-function keys of each
@@ -45,19 +45,20 @@ class AnsiKeyboardGeometry extends PhysicalKeyboardGeometry {
     r0.add(const PhysicalKey(row: 0, opticalColumn: 14, function: 'backspace', glyph: '⌫', unitWidth: 1.5));
 
     // Row 1: QWERTY row — Tab + Q..P [ ] \ (NO trailing Enter). The whole row
-    // is shifted one key-width (2 optical columns) to the right, so it is
-    // indented while every other row keeps its position.
+    // is shifted 0.5U (one optical column) to the LEFT of its prior position,
+    // so it is indented left of where it was. Home, bottom, number, and space
+    // rows keep their exact positions; all key sizes/spacing are unchanged.
     final r1 = <PhysicalKey>[
-      const PhysicalKey(row: 1, opticalColumn: 2, function: 'tab', glyph: 'Tab', unitWidth: 1.5),
+      const PhysicalKey(row: 1, opticalColumn: 1, function: 'tab', glyph: 'Tab', unitWidth: 1.5),
     ];
     const r1Glyphs = ['Q','W','E','R','T','Y','U','I','O','P','[',']','\\'];
     for (var i = 0; i < r1Glyphs.length; i++) {
-      r1.add(PhysicalKey(row: 1, opticalColumn: 4 + i, glyph: r1Glyphs[i]));
+      r1.add(PhysicalKey(row: 1, opticalColumn: 3 + i, glyph: r1Glyphs[i]));
     }
 
     // Row 2: home row — Caps + A..; ' + Enter. First key at col 1. The QWERTY
-    // row above was shifted right by one key-width, so A sits LEFT of Q (and
-    // Z sits under A on the same line, since home and bottom share position).
+    // row above was shifted 0.5U left so Q now aligns with A (Z sits 0.5U to
+    // the right, since bottom starts one column further).
     final r2 = <PhysicalKey>[
       const PhysicalKey(row: 2, opticalColumn: 1, function: 'caps', glyph: 'Caps', unitWidth: 1.5),
     ];
