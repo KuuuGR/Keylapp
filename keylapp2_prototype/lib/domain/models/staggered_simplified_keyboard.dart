@@ -12,8 +12,9 @@ import 'physical_keyboard.dart';
 ///   bottom:      Z X C V B N M , . /
 ///
 /// Design rules:
-///  - QWERTY row contains EXACTLY 10 keys (Q..P). It sits 0.5U (one optical
-///    column) to the RIGHT of its normal simplified position.
+///  - QWERTY row contains EXACTLY 10 keys (Q..P). It is shifted one full key
+///    (1U = 2 optical columns) to the LEFT of its previous position, so Q ends
+///    up exactly 0.5U to the LEFT of A.
 ///  - Home row contains EXACTLY 10 keys (A..;), kept in its normal position.
 ///  - Bottom row contains EXACTLY 10 keys (Z../), kept in its normal position.
 ///  - All character keys are 1×1; no key is resized; spacing is unchanged.
@@ -24,12 +25,14 @@ class StaggeredSimplifiedKeyboardGeometry extends PhysicalKeyboardGeometry {
       : super(id: 'ansi-compact-simplified', rows: _buildRows());
 
   static List<List<PhysicalKey>> _buildRows() {
-    // QWERTY row (row 1) — exactly Q..P, shifted ONE optical column (0.5U)
-    // to the RIGHT of its normal simplified position (Q was at col 3, now 4).
+    // QWERTY row (row 1) — exactly Q..P, shifted one full key (2 optical
+    // columns) to the LEFT (Q moved from col 4 to col 2). Baseline (min first
+    // col) is 2, so Q renders at offset 0 and A (home, col 3) renders 0.5U to
+    // the right of Q — i.e. Q is 0.5U to the LEFT of A.
     final r1 = <PhysicalKey>[];
     const r1Glyphs = ['Q','W','E','R','T','Y','U','I','O','P'];
     for (var i = 0; i < r1Glyphs.length; i++) {
-      r1.add(PhysicalKey(row: 1, opticalColumn: 4 + i, glyph: r1Glyphs[i]));
+      r1.add(PhysicalKey(row: 1, opticalColumn: 2 + i, glyph: r1Glyphs[i]));
     }
 
     // Home row (row 2) — exactly A..;, normal position (A at col 3).

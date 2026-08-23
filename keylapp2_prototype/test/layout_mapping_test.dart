@@ -36,7 +36,7 @@ void main() {
       expect(mapped['4:6'], ''); // space
     });
 
-    test('Staggered Simplified: exactly 10 keys per row, QWERTY 0.5U right', () {
+    test('Staggered Simplified: exactly 10 keys/row, QWERTY 0.5U left of home', () {
       final geo = StaggeredSimplifiedKeyboardGeometry();
 
       // Exactly 10 keys in every character row, all 1×1.
@@ -56,15 +56,15 @@ void main() {
       expect(geo.rows[2].first.glyph, 'Z');
       expect(geo.rows[2].last.glyph, '/');
 
-      // Render offsets: baseline = min first col = 3.
-      // QWERTY first col 4 → offset 0.5U; Q x = 0.5.
-      // Home   first col 3 → offset 0.0U; A x = 0.0.
-      // Bottom first col 4 → offset 0.5U; Z x = 0.5.
-      // So Q is 0.5U RIGHT of A, and Z is 0.5U right of A (unchanged).
-      final q = geo.rows[0][0].opticalColumn; // 4
+      // Render offsets: baseline = min first col = 2 (QWERTY).
+      // QWERTY first col 2 → offset 0.0U; Q x = 0.0.
+      // Home   first col 3 → offset 0.5U; A x = 0.5.
+      // Bottom first col 4 → offset 1.0U; Z x = 1.0.
+      // So Q is 0.5U LEFT of A, and Z is 0.5U right of A (unchanged).
+      final q = geo.rows[0][0].opticalColumn; // 2
       final a = geo.rows[1][0].opticalColumn; // 3
       final z = geo.rows[2][0].opticalColumn; // 4
-      expect(q - a, 1); // 1 optical col = 0.5U right
+      expect(a - q, 1); // 1 optical col = Q 0.5U LEFT of A
       expect(z - a, 1); // bottom unchanged relative to home
       expect(geo.rows[0].length, 10);
     });
